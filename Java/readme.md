@@ -932,7 +932,8 @@ The main differences between procedural programming and OOP are:
 | Procedural programming uses the concept of procedure abstraction. | 	Object-oriented programming uses the concept of data abstraction. |
 | Code reusability absent in procedural programming. | 	Code reusability present in object-oriented programming. |
 | Examples: C, FORTRAN, Pascal, Basic, etc. | 	Examples: C++, Java, Python, C#, etc. |
-<br><br>
+
+<br>
 
 ### 🍂 what is exception in java and why handling it is important?
 An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.
