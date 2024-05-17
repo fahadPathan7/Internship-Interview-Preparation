@@ -3,7 +3,7 @@
 ## Index
 - [Interview preparation on Java (OOP)](#interview-preparation-on-java-oop)
   - [Index](#index)
-  - [Topics covered from javatpoint](#topics-covered-from-javatpoint)
+  - [🚀 Topics covered from javatpoint](#-topics-covered-from-javatpoint)
     - [🍂 what is java?](#-what-is-java)
     - [🍂 why java is OOP language?](#-why-java-is-oop-language)
     - [🍂 why java is a platform?](#-why-java-is-a-platform)
@@ -42,8 +42,27 @@
     - [🍂 object cloning in java.](#-object-cloning-in-java)
     - [🍂 wrapper class in java.](#-wrapper-class-in-java)
     - [🍂 call by value and call by reference.](#-call-by-value-and-call-by-reference)
+    - [🍂 what is thread in java?](#-what-is-thread-in-java)
+    - [🍂 benefits of using thread.](#-benefits-of-using-thread)
+    - [🍂 life cycle of thread.](#-life-cycle-of-thread)
+    - [🍂 how to create a thread in java?](#-how-to-create-a-thread-in-java)
+    - [🍂 what is thread scheduler?](#-what-is-thread-scheduler)
+    - [🍂 can we start a thread twice?](#-can-we-start-a-thread-twice)
+    - [🍂 use of Thread.join()](#-use-of-threadjoin)
+    - [🍂 what is main thread?](#-what-is-main-thread)
+    - [🍂 what is deamon thread?](#-what-is-deamon-thread)
+    - [🍂 what is thread pool?](#-what-is-thread-pool)
+    - [🍂 how to perform single task using multiple thread?](#-how-to-perform-single-task-using-multiple-thread)
+    - [🍂 garbage collection.](#-garbage-collection)
+    - [🍂 what is synchronization?](#-what-is-synchronization)
+    - [🍂 deadlock in java.](#-deadlock-in-java)
+    - [🍂 inter-thread communication.](#-inter-thread-communication)
+  - [🚀 Topics covered from miscllaneous sources](#-topics-covered-from-miscllaneous-sources)
+    - [🍂 what is the difference between procedural programming and OOP?](#-what-is-the-difference-between-procedural-programming-and-oop)
+    - [🍂 what is exception in java and why handling it is important?](#-what-is-exception-in-java-and-why-handling-it-is-important)
+    - [🍂 describe try, catch, finally block.](#-describe-try-catch-finally-block)
 
-## Topics covered from javatpoint
+## 🚀 Topics covered from javatpoint
 
 ### 🍂 what is java?
 Java is a high-level, platform-independent, object-oriented programming language. It was developed by **James Gosling** at **Sun Microsystems** in 1995. It is a general-purpose programming language that is used to develop desktop, web, and mobile applications. It is based on the **WORA (Write Once Run Anywhere)** principle. It is a **class-based** and **object-oriented** language.
@@ -538,3 +557,399 @@ class Test {
 }
 ```
 <br><br>
+
+### 🍂 what is thread in java?
+A thread is a **lightweight sub-process** that is used to execute a task. It is a separate path of execution. It is used to achieve **multitasking**. It is a part of the process. It shares the process's resources but executes independently.
+
+<img src='./images/thread.png' width=350px >
+<br><br>
+
+### 🍂 benefits of using thread.
+1. **Multitasking**: multiple tasks can be executed simultaneously.
+2. **Efficient**: threads share the same memory space, so it is more efficient than processes.
+3. **Responsive**: threads make the application more responsive.
+<br><br>
+
+### 🍂 life cycle of thread.
+A thread goes through various stages in its life cycle:
+1. **New**: the thread is in the new state before the start() method is called.
+2. **Active**: the thread is in the active state after the start() method is called.
+3. **Blocked / Waiting**: the thread is in the blocked state when it is waiting for a resource.
+4. **Timed Waiting**: the thread is in the timed waiting state when it is waiting for a resource for a specific time.
+5. **Terminated**: the thread is in the terminated state when it completes its execution.
+<br><br>
+
+### 🍂 how to create a thread in java?
+There are two ways to create a thread in Java:
+1. **By extending the Thread class**:
+```java
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        t.start(); // prints Thread is running...
+    }
+}
+```
+
+2. **By implementing the Runnable interface**:
+```java
+class MyThread implements Runnable {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        Thread thread = new Thread(t);
+        thread.start(); // prints Thread is running...
+    }
+}
+```
+**Note**: the `run()` method is overridden to define the task that the thread will perform. The `start()` method is called to start the thread.
+<br><br>
+
+### 🍂 what is thread scheduler?
+The thread scheduler is a part of the JVM that decides which thread should run. It is responsible for the execution of threads. It uses the **thread priorities** to decide which thread should run. The thread with higher priority is given preference over the thread with lower priority. The thread scheduler uses the **preemptive or time-slicing scheduling** algorithm to switch between threads.
+
+example:
+```java
+Thread t1 = new Thread();
+Thread t2 = new Thread();
+t1.setPriority(Thread.MIN_PRIORITY); // 1
+t2.setPriority(Thread.MAX_PRIORITY); // 10
+```
+<br><br>
+
+### 🍂 can we start a thread twice?
+No, we cannot start a thread twice. If we try to start a thread twice, it will throw a `java.lang.IllegalThreadStateException`.
+<br><br>
+
+### 🍂 use of Thread.join()
+The `join()` method is used to **wait for a thread to complete its execution**. It makes the current thread wait until the specified thread is dead. It is used to **join the threads**.
+
+example:
+```java
+class MyThread extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        MyThread t2 = new MyThread();
+        t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        t2.start();
+    }
+}
+```
+here, the main thread waits for t1 to complete its execution before starting t2.
+<br><br>
+
+### 🍂 what is main thread?
+The main thread is the thread that is created when the program starts. It is the **entry point of the program**. It is responsible for the execution of the main() method. It is a **non-daemon** thread. It is created by the JVM when the program starts.
+<br><br>
+
+### 🍂 what is deamon thread?
+A daemon thread is a low-priority thread that **runs in the background**. It provides services to the **user threads**. It is used to perform tasks such as garbage collection, memory management, etc. It is a **daemon** thread. It is created by the JVM when the program starts. It is terminated when all the user threads finish their execution.
+<br><br>
+
+### 🍂 what is thread pool?
+A thread pool is a collection of threads that are **reused** to execute tasks. It is used to manage the threads efficiently. It provides a way to **limit the number of threads** that can be created. It is used to improve the performance of the application. It is created using the `Executors` class.
+
+example:
+```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class WorkerThread implements Runnable {
+    private String message;
+
+    public WorkerThread(String s) {
+        this.message = s;
+    }
+
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " (Start) message = " + message);
+        processMessage();
+        System.out.println(Thread.currentThread().getName() + " (End)");
+    }
+
+    private void processMessage() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+public class ThreadPool {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(5); // thread pool with 5 threads
+        for (int i = 0; i < 10; i++) {
+            Runnable worker = new WorkerThread("" + i); // creating a new worker thread
+            executor.execute(worker); // executing the worker thread. It will run in one of the threads in the thread pool.
+        }
+        executor.shutdown(); // shut down the thread pool. It will wait for all the threads to finish their execution.
+        while (!executor.isTerminated()) {}
+        System.out.println("Finished all threads");
+    }
+}
+```
+output:
+```
+pool-1-thread-1 (Start) message = 0
+pool-1-thread-2 (Start) message = 1
+pool-1-thread-3 (Start) message = 2
+pool-1-thread-4 (Start) message = 3
+pool-1-thread-5 (Start) message = 4
+pool-1-thread-1 (End)
+pool-1-thread-2 (End)
+pool-1-thread-3 (End)
+pool-1-thread-4 (End)
+pool-1-thread-5 (End)
+pool-1-thread-1 (Start) message = 5
+pool-1-thread-2 (Start) message = 6
+pool-1-thread-3 (Start) message = 7
+pool-1-thread-4 (Start) message = 8
+pool-1-thread-5 (Start) message = 9
+pool-1-thread-1 (End)
+pool-1-thread-2 (End)
+pool-1-thread-3 (End)
+pool-1-thread-4 (End)
+pool-1-thread-5 (End)
+Finished all threads
+```
+here, the thread pool is created with 5 threads. The `WorkerThread` class is used to define the task that the thread will perform. The `execute()` method is used to execute the task. The `shutdown()` method is used to shut down the thread pool. The `WorkerThread` class implements the `Runnable` interface.
+<br><br>
+
+### 🍂 how to perform single task using multiple thread?
+Using single runnable object, we can perform a single task using multiple threads. The `run()` method of the `Runnable` interface is overridden to define the task that the thread will perform.
+
+example:
+```java
+class MyThread implements Runnable {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        Thread t1 = new Thread(t);
+        Thread t2 = new Thread(t);
+        t1.start(); // prints Thread is running...
+        t2.start(); // prints Thread is running...
+    }
+}
+```
+<br><br>
+
+### 🍂 garbage collection.
+Garbage collection is a process of reclaiming the unused memory. It is **performed automatically by the JVM**. It is used to free up the memory occupied by the objects that are no longer in use. It is a part of the memory management system. It is used to prevent memory leaks and improve the performance of the application.
+<br><br>
+
+### 🍂 what is synchronization?
+Synchronization is a process of controlling the access of multiple threads to shared resources. It is used to avoid data inconsistency. It is achieved using the `synchronized` keyword.
+
+example:
+```java
+// this class is used to print the table of a number
+class Table {
+    synchronized void printTable(int n) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(n * i);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+// this class is used to create a thread that prints the table of 5
+class MyThread1 extends Thread {
+    Table t;
+    MyThread1(Table t) {
+        this.t = t;
+    }
+    public void run() {
+        t.printTable(5);
+    }
+}
+
+// this class is used to create a thread that prints the table of 100
+class MyThread2 extends Thread {
+    Table t;
+    MyThread2(Table t) {
+        this.t = t;
+    }
+    public void run() {
+        t.printTable(100);
+    }
+}
+
+// this class is used to create the table object and start the threads
+public class Synchronization {
+    public static void main(String[] args) {
+        Table obj = new Table();
+        MyThread1 t1 = new MyThread1(obj);
+        MyThread2 t2 = new MyThread2(obj);
+        t1.start();
+        t2.start();
+    }
+}
+```
+output:
+```
+5
+10
+15
+20
+25
+100
+200
+300
+400
+500
+```
+here, the `printTable()` method is synchronized. The `MyThread1` and `MyThread2` classes are used to create threads that print the table of 5 and 100 respectively. The `synchronized` keyword is used to synchronize the `printTable()` method.
+<br><br>
+
+### 🍂 deadlock in java.
+Deadlock is a situation in which two or more threads are waiting for each other to release the resources. It is a common problem in multi-threading. It can occur when two threads have a circular dependency on a pair of synchronized objects.
+
+example:
+```java
+class A {
+    synchronized void foo(B b) {
+        String name = Thread.currentThread().getName();
+        System.out.println(name + " entered A.foo");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("A interrupted");
+        }
+        System.out.println(name + " trying to call B.last()");
+        b.last();
+    }
+
+    synchronized void last() {
+        System.out.println("Inside A.last");
+    }
+}
+
+class B {
+    synchronized void bar(A a) {
+        String name = Thread.currentThread().getName();
+        System.out.println(name + " entered B.bar");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("B interrupted");
+        }
+        System.out.println(name + " trying to call A.last()");
+        a.last();
+    }
+
+    synchronized void last() {
+        System.out.println("Inside B.last");
+    }
+}
+
+class Deadlock implements Runnable {
+    A a = new A();
+    B b = new B();
+
+    Deadlock() {
+        Thread.currentThread().setName("MainThread");
+        Thread t = new Thread(this, "RacingThread");
+        t.start();
+        a.foo(b);
+        System.out.println("Back in main thread");
+    }
+
+    public void run() {
+        b.bar(a);
+        System.out.println("Back in other thread");
+    }
+
+    public static void main(String[] args) {
+        new Deadlock();
+    }
+}
+```
+output:
+```
+MainThread entered A.foo
+RacingThread entered B.bar
+MainThread trying to call B.last()
+RacingThread trying to call A.last()
+```
+here, the `foo()` method of class `A` is synchronized and the `bar()` method of class `B` is synchronized. The `Deadlock` class creates two threads that call the `foo()` and `bar()` methods. The `foo()` method calls the `last()` method of class `B` and the `bar()` method calls the `last()` method of class `A`. This creates a circular dependency and leads to a deadlock.
+<br><br>
+
+### 🍂 inter-thread communication.
+Inter-thread communication is a process of communication between two or more threads. It is used to achieve synchronization between threads.
+
+It is achieved using the following methods:
+1. **wait()**: causes the current thread to wait until another thread invokes the `notify()` or `notifyAll()` method.
+2. **notify()**: wakes up a single thread that is waiting on the object.
+3. **notifyAll()**: wakes up all the threads that are waiting on the object.
+<br><br>
+
+---
+
+## 🚀 Topics covered from miscllaneous sources
+
+### 🍂 what is the difference between procedural programming and OOP?
+Procedural programming is a top-down approach to programming, where the program is divided into a series of functions that each perform a specific task. OOP, on the other hand, is a bottom-up approach to programming, where the program is divided into a series of objects that each represent a real-world entity.
+
+The main differences between procedural programming and OOP are:
+| Procedural Programming | Object-Oriented Programming |
+|-------------------------|------------------------------|
+| In procedural programming, the program is divided into small parts called functions. | In object-oriented programming, the program is divided into small parts called objects. |
+| Procedural programming follows a top-down approach. | 	Object-oriented programming follows a bottom-up approach. |
+| There is no access specifier in procedural programming. | 	Object-oriented programming has access specifiers like private, public, protected, etc.|
+| Adding new data and functions is not easy. | 	Adding new data and function is easy. |
+| Procedural programming does not have any proper way of hiding data so it is less secure. | 	Object-oriented programming provides data hiding so it is more secure. |
+| In procedural programming, overloading is not possible. |  	Overloading is possible in object-oriented programming. |
+| In procedural programming, there is no concept of data hiding and inheritance. | 	In object-oriented programming, the concept of data hiding and inheritance is used. |
+| In procedural programming, the function is more important than the data. | 	In object-oriented programming, data is more important than function
+| Procedural programming is based on the unreal world. | 	Object-oriented programming is based on the real world. |
+| Procedural programming is used for designing medium-sized programs. | 	Object-oriented programming is used for designing large and complex programs
+| Procedural programming uses the concept of procedure abstraction. | 	Object-oriented programming uses the concept of data abstraction. |
+| Code reusability absent in procedural programming. | 	Code reusability present in object-oriented programming. |
+| Examples: C, FORTRAN, Pascal, Basic, etc. | 	Examples: C++, Java, Python, C#, etc. |
+<br><br>
+
+### 🍂 what is exception in java and why handling it is important?
+An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.
+
+Exception handling is important because:
+1. **Prevents the program from crashing**: if an exception is not handled, the program will crash.
+2. **Improves the readability of the code**: by separating the error-handling code from the normal code.
+3. **Maintains the flow of the program**: by handling exceptions gracefully.
+4. **Provides a way to recover from errors**: by catching and handling exceptions.
+5. **Helps in debugging**: by providing information about the error.
+6. **Prevents security vulnerabilities**: by handling exceptions securely.
+7. **Improves the user experience**: by providing meaningful error messages.
+<br><br>
+
+### 🍂 describe try, catch, finally block.
+- **try block**: contains the code that may throw an exception. It is followed by one or more catch blocks.
+- **catch block**: catches the exception thrown by the try block. It contains the code to handle the exception.
+- **finally block**: contains the code that is always executed, whether an exception is thrown or not. It is used to release resources, close connections, etc.
+
+<hr>
