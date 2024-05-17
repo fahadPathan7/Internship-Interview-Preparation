@@ -1,4 +1,48 @@
 # Interview preparation on Java (OOP)
+
+## Index
+- [Interview preparation on Java (OOP)](#interview-preparation-on-java-oop)
+  - [Index](#index)
+  - [Topics covered from javatpoint](#topics-covered-from-javatpoint)
+    - [🍂 what is java?](#-what-is-java)
+    - [🍂 why java is OOP language?](#-why-java-is-oop-language)
+    - [🍂 why java is a platform?](#-why-java-is-a-platform)
+    - [🍂 what is package in java?](#-what-is-package-in-java)
+    - [🍂 what is JVM?](#-what-is-jvm)
+    - [🍂 what is JRE?](#-what-is-jre)
+    - [🍂 what is JDK?](#-what-is-jdk)
+    - [🍂 difference between object and class.](#-difference-between-object-and-class)
+    - [🍂 difference between method overloading and overriding.](#-difference-between-method-overloading-and-overriding)
+    - [🍂 types of variables.](#-types-of-variables)
+    - [🍂 data types.](#-data-types)
+    - [🍂 what is class?](#-what-is-class)
+    - [🍂 what is inheritance?](#-what-is-inheritance)
+    - [🍂 what is polymorphism?](#-what-is-polymorphism)
+    - [🍂 what is abstraction?](#-what-is-abstraction)
+    - [🍂 what is encapsulation?](#-what-is-encapsulation)
+    - [🍂 what is a constructor?](#-what-is-a-constructor)
+    - [🍂 what is private constructor?](#-what-is-private-constructor)
+    - [🍂 why is java's main method static?](#-why-is-javas-main-method-static)
+    - [🍂 what is this keyword?](#-what-is-this-keyword)
+    - [🍂 what is super keyword?](#-what-is-super-keyword)
+    - [🍂 what is final keyword?](#-what-is-final-keyword)
+    - [🍂 what is static keyword?](#-what-is-static-keyword)
+    - [🍂 what is strictft keyword?](#-what-is-strictft-keyword)
+    - [🍂 why multiple inheritance is not supported in java?](#-why-multiple-inheritance-is-not-supported-in-java)
+    - [🍂 why method overloading is not possible by changing the return type only?](#-why-method-overloading-is-not-possible-by-changing-the-return-type-only)
+    - [🍂 can we overlaod java main() method?](#-can-we-overlaod-java-main-method)
+    - [🍂 why can we not override static method?](#-why-can-we-not-override-static-method)
+    - [🍂 what is instance initializer block?](#-what-is-instance-initializer-block)
+    - [🍂 abstract classs in java.](#-abstract-classs-in-java)
+    - [🍂 interface in java.](#-interface-in-java)
+    - [🍂 difference between abstract class and interface.](#-difference-between-abstract-class-and-interface)
+    - [🍂 access modifiers in java.](#-access-modifiers-in-java)
+    - [🍂 java access modifiers with method overriding.](#-java-access-modifiers-with-method-overriding)
+    - [🍂 object class in java.](#-object-class-in-java)
+    - [🍂 object cloning in java.](#-object-cloning-in-java)
+    - [🍂 wrapper class in java.](#-wrapper-class-in-java)
+    - [🍂 call by value and call by reference.](#-call-by-value-and-call-by-reference)
+
 ## Topics covered from javatpoint
 
 ### 🍂 what is java?
@@ -323,7 +367,7 @@ strictfp class Test {
 ```
 <br><br>
 
-### 🍂 why multiple inheriitance is not supported in java?
+### 🍂 why multiple inheritance is not supported in java?
 Multiple inheritance is not supported in Java because it leads to the **diamond problem**. In the diamond problem, the compiler gets confused about which method to call from the parent classes. To avoid this problem, Java supports multiple inheritance through **interfaces**.
 <br><br>
 
