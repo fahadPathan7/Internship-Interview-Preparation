@@ -1,7 +1,7 @@
-# Interview Preparation on MySql
+# Interview Preparation on MySQL
 
 ## Index
-- [Interview Preparation on MySql](#interview-preparation-on-mysql)
+- [Interview Preparation on MySQL](#interview-preparation-on-mysql)
   - [Index](#index)
   - [🚀 Topics covered from w3schools](#-topics-covered-from-w3schools)
     - [🍂 what is sql?](#-what-is-sql)
@@ -85,7 +85,7 @@ VALUES
 (7, 'Blondel père et fils', 'Frédérique Citeaux', '24, place Kléber', 'Strasbourg', '67000', 'France'),
 (8, 'Bólido Comidas preparadas', 'Martín Sommer', 'C/ Araquil, 67', 'Madrid', '28023', 'Spain'),
 (9, 'Bon app', 'Laurence Lebihan', '12, rue des Bouchers', 'Marseille', '13008', 'France'),
-(10, 'Bottom-Dollar Marketse', 'Elizabeth Lincoln', '23 Tsawassen Blvd.', 'Tsawassen', 'T2F 8M4', 'Canada'),
+(10, 'Bottom-Dollar Marketse', 'Elizabeth Lincoln', '23 Tsawassen Blvd.', 'Tsawassen', 'T2F 8M4', 'Canada');
 ```
 
 output:
@@ -121,7 +121,7 @@ VALUES
 (10310, 77, 8, '1996-09-20', 2),
 (10365, 37, 1, '1996-11-16', 1),
 (10383, 77, 8, '1996-12-16', 3),
-(10355, 37, 9, '1996-11-05', 2),
+(10355, 37, 9, '1996-11-05', 2);
 ```
 
 output:
