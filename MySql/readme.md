@@ -52,11 +52,11 @@ SQL is the standard language for dealing with **Relational Databases**. It is us
 <br><br><br>
 
 ### 🍂 operators of MySQL
-- **Comparison operators**: `=` (equal), `<>` or `!=` (not equal), `>` (greater than), `<` (less than), `>=` (greater than or equal), `<=` (less than or equal).
-- **Logical operators**: `ALL`, `AND`, `ANY`, `BETWEEN`, `EXISTS`, `IN`, `LIKE`, `NOT`, `OR`, `IS NULL`, `UNIQUE`.
-- **Arithmetic operators**: `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `%` (modulus).
-- **Bitwise operators**: `&` (bitwise AND), `|` (bitwise OR), `^` (bitwise exclusive OR), `~` (bitwise NOT), `<<` (left shift), `>>` (right shift).
-- **Assignment operators**: `=` (assign), `+=` (add and assign), `-=` (subtract and assign), `*=` (multiply and assign), `/=` (divide and assign), `%=` (modulus and assign), `<<=` (left shift and assign), `>>=` (right shift and assign), `&=` (bitwise AND and assign), `^=` (bitwise exclusive OR and assign), `|=` (bitwise OR and assign).
+- **Comparison operators**: = (equal), <> or != (not equal), > (greater than), < (less than), >= (greater than or equal), <= (less than or equal).
+- **Logical operators**: ALL, AND, ANY, BETWEEN, EXISTS, IN, LIKE, NOT, OR, IS NULL.
+- **Arithmetic operators**: + (addition), - (subtraction), * (multiplication), / (division), % (modulus).
+- **Bitwise operators**: & (bitwise AND), | (bitwise OR), ^ (bitwise XOR).
+- **Compound operators**: += (addition assignment), -= (subtraction assignment), *= (multiplication assignment), /= (division assignment), %= (modulus assignment), &= (bitwise AND assignment).
 <br><br><br>
 
 ### 🍂 TABLE creation
