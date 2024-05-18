@@ -44,10 +44,8 @@ VALUES
 ```
 
 output:
-```sql
-+------------+--------------------------+-----------------+---------------------+-----------+------------+---------+
 | CustomerID | CustomerName             | ContactName     | Address             | City      | PostalCode | Country |
-+------------+--------------------------+-----------------+---------------------+-----------+------------+---------+
+|------------|--------------------------|-----------------|---------------------|-----------|------------|---------|
 | 1          | Alfreds Futterkiste      | Maria Anders    | Obere Str. 57       | Berlin    | 12209      | Germany |
 | 2          | Ana Trujillo Emparedados | Ana Trujillo    | Avda. de la Constitución 2222 | México D.F. | 05021 | Mexico  |
 | 3          | Antonio Moreno Taquería  | Antonio Moreno  | Mataderos 2312      | México D.F. | 05023      | Mexico  |
@@ -58,9 +56,8 @@ output:
 | 8          | Bólido Comidas preparadas | Martín Sommer  | C/ Araquil, 67      | Madrid    | 28023      | Spain   |
 | 9          | Bon app                  | Laurence Lebihan | 12, rue des Bouchers | Marseille | 13008      | France  |
 | 10         | Bottom-Dollar Marketse   | Elizabeth Lincoln | 23 Tsawassen Blvd. | Tsawassen | T2F 8M4    | Canada  |
-+------------+--------------------------+-----------------+---------------------+-----------+------------+---------+
-```
-<br><br>
+
+<br>
 
 ### 🍂 SELECT statement.
 The SELECT statement is used to select data from a database. The data returned is stored in a result table, called the result-set.
