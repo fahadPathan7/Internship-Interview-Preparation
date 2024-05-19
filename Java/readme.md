@@ -57,13 +57,15 @@
     - [🍂 what is synchronization?](#-what-is-synchronization)
     - [🍂 deadlock in java.](#-deadlock-in-java)
     - [🍂 inter-thread communication.](#-inter-thread-communication)
-  - [🚀 Topics covered from miscllaneous sources](#-topics-covered-from-miscllaneous-sources)
+  - [🚀 Topics covered from other sources](#-topics-covered-from-other-sources)
     - [🍂 what is the difference between procedural programming and OOP?](#-what-is-the-difference-between-procedural-programming-and-oop)
     - [🍂 what is exception in java and why handling it is important?](#-what-is-exception-in-java-and-why-handling-it-is-important)
     - [🍂 describe try, catch, finally block.](#-describe-try-catch-finally-block)
     - [🍂 what is the difference between throw and throws?](#-what-is-the-difference-between-throw-and-throws)
     - [🍂 what is the difference between checked and unchecked exceptions?](#-what-is-the-difference-between-checked-and-unchecked-exceptions)
     - [🍂 what is the difference between final, finally, and finalize?](#-what-is-the-difference-between-final-finally-and-finalize)
+
+<br><br>
 
 ## 🚀 Topics covered from javatpoint
 
@@ -910,11 +912,12 @@ It is achieved using the following methods:
 1. **wait()**: causes the current thread to wait until another thread invokes the `notify()` or `notifyAll()` method.
 2. **notify()**: wakes up a single thread that is waiting on the object.
 3. **notifyAll()**: wakes up all the threads that are waiting on the object.
-<br><br><br>
+
+<br><br>
 
 ---
 
-## 🚀 Topics covered from miscllaneous sources
+## 🚀 Topics covered from other sources
 
 ### 🍂 what is the difference between procedural programming and OOP?
 Procedural programming is a top-down approach to programming, where the program is divided into a series of functions that each perform a specific task. OOP, on the other hand, is a bottom-up approach to programming, where the program is divided into a series of objects that each represent a real-world entity.

@@ -3,6 +3,7 @@
 ## Index
 - [Interview Preparation on MySQL](#interview-preparation-on-mysql)
   - [Index](#index)
+  - [📝 Practice SQL interview questions](#-practice-sql-interview-questions)
   - [🚀 Topics covered from w3schools](#-topics-covered-from-w3schools)
     - [🍂 what is sql?](#-what-is-sql)
     - [🍂 operators of MySQL](#-operators-of-mysql)
@@ -29,6 +30,7 @@
     - [🍂 CROSS JOIN](#-cross-join)
     - [🍂 SELF JOIN](#-self-join)
     - [🍂 UNION](#-union)
+    - [🍂 GROUP BY](#-group-by)
     - [🍂 INSERT SELECT](#-insert-select)
     - [🍂 CREATE DATABASE](#-create-database)
     - [🍂 DROP DATABASE](#-drop-database)
@@ -38,12 +40,24 @@
     - [🍂 FOREIGN KEY](#-foreign-key)
     - [🍂 DEFAULT](#-default)
     - [🍂 AUTO INCREMENT](#-auto-increment)
-  - [🚀 Topics covered from miscllaneous sources](#-topics-covered-from-miscllaneous-sources)
+  - [🚀 Topics covered from other sources](#-topics-covered-from-other-sources)
+    - [🍂 LENGTH() function](#-length-function)
+    - [🍂 DATEDIFF() function](#-datediff-function)
+    - [🍂 ROUND() function](#-round-function)
+    - [🍂 IFNULL() function](#-ifnull-function)
+    - [🍂 HAVING clause](#-having-clause)
     - [🍂 what is the difference between char and varchar datatypes?](#-what-is-the-difference-between-char-and-varchar-datatypes)
     - [🍂 what is normalization?](#-what-is-normalization)
     - [🍂 what is denormalization?](#-what-is-denormalization)
     - [🍂 what is an ALIAS command?](#-what-is-an-alias-command)
     - [🍂 what is ACID properties?](#-what-is-acid-properties)
+
+<br><br>
+
+## 📝 Practice SQL interview questions
+[LeetCode Interview Questions](https://leetcode.com/studyplan/top-sql-50/)
+
+<br><br>
 
 ## 🚀 Topics covered from w3schools
 
@@ -534,6 +548,16 @@ output:
 
 <br><br>
 
+### 🍂 GROUP BY
+The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or more columns.
+```sql
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+```
+it will return the number of customers from each country.
+<br><br><br>
+
 ### 🍂 INSERT SELECT
 The INSERT INTO SELECT statement copies data from one table and inserts it into another table.
 ```sql
@@ -658,9 +682,67 @@ CREATE TABLE Persons (
 ```
 it will create a new table named Persons with the ID column as the primary key and auto increment.
 
----
+<br><br>
 
-## 🚀 Topics covered from miscllaneous sources
+<hr>
+
+## 🚀 Topics covered from other sources
+
+### 🍂 LENGTH() function
+The LENGTH() function is used to return the length of a string.
+```sql
+SELECT LENGTH('Hello World');
+```
+it will return the length of the string Hello World.
+<br><br>
+
+compare the length:
+```sql
+SELECT * FROM Customers
+WHERE LENGTH(CustomerName) > 20;
+```
+it will return all the customers whose name is greater than 20 characters.
+<br><br><br>
+
+### 🍂 DATEDIFF() function
+The DATEDIFF() function is used to calculate the difference between two dates.
+```sql
+SELECT DATEDIFF('2021-10-01', '2021-09-01'); /* yyyy-mm-dd */
+```
+it will return the difference between the two dates.
+
+<br><br>
+
+### 🍂 ROUND() function
+The ROUND() function is used to round a number to a specified number of decimal places.
+```sql
+SELECT ROUND(123.456, 2);
+```
+it will return the number 123.46 rounded to 2 decimal places.
+
+<br><br>
+
+### 🍂 IFNULL() function
+The IFNULL() function is used to replace NULL values with a specified value.
+```sql
+SELECT CustomerName, IFNULL(ContactName, 'No Contact') AS Contact
+FROM Customers;
+```
+it will return the customer name and the contact name. If the contact name is null, it will return No Contact.
+
+<br><br>
+
+### 🍂 HAVING clause
+The HAVING clause is used to filter records based on a group of rows. It is used in combination with the GROUP BY clause.
+```sql
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 2;
+```
+it will return the number of customers from each country where the number of customers is greater than 2.
+
+<br><br>
 
 ### 🍂 what is the difference between char and varchar datatypes?
 - **CHAR**: It is fixed-length character data type. It can store up to 255 characters. If the length of the data is less than the specified length, it will be padded with spaces. It is faster than VARCHAR.
@@ -708,7 +790,7 @@ The ALIAS command is used to **rename a table or a column**. It is used to give 
 SELECT column_name AS alias_name
 FROM table_name;
 ```
-<br><br><br>
+<br><br>
 
 ### 🍂 what is ACID properties?
 ACID stands for **Atomicity, Consistency, Isolation, Durability**. It is a set of properties that guarantee that database transactions are processed reliably. It ensures that the database remains consistent and reliable.
