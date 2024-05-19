@@ -8,6 +8,7 @@
     - [🍂 How does Node.js work?](#-how-does-nodejs-work)
     - [🍂 How do you manage packages in your node.js project?](#-how-do-you-manage-packages-in-your-nodejs-project)
     - [🍂 How node.js is better than other frameworks most popularly used?](#-how-nodejs-is-better-than-other-frameworks-most-popularly-used)
+    - [🍂 What is event-driven model?](#-what-is-event-driven-model)
     - [🍂 What are the advantages of using promises insted of callbacks?](#-what-are-the-advantages-of-using-promises-insted-of-callbacks)
     - [🍂 Why is node.js single-threaded?](#-why-is-nodejs-single-threaded)
     - [🍂 How many types of API functions are there in node.js?](#-how-many-types-of-api-functions-are-there-in-nodejs)
@@ -57,6 +58,11 @@ We can manage packages in our Node.js project using **npm** (Node Package Manage
 
 ### 🍂 How node.js is better than other frameworks most popularly used?
 Node.js is better than other frameworks because of its **non-blocking I/O** and **event-driven** model. It is **lightweight** and **efficient**. It is **single-threaded** but **highly scalable**. It is built on the Chrome V8 JavaScript engine (which is very fast). It is **open-source and cross-platform**.
+
+<br><br>
+
+### 🍂 What is event-driven model?
+The event-driven model is a programming paradigm in which the flow of the program is determined by events such as user actions, sensor outputs, or messages from other programs. In Node.js, the event-driven model is used to handle asynchronous operations. It allows the program to respond to events as they occur. Examples of events in Node.js include HTTP requests, file system operations, GUI events, etc.
 
 <br><br>
 
