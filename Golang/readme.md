@@ -16,6 +16,7 @@
     - [🍂 Go Maps](#-go-maps)
     - [🍂 Go Loops](#-go-loops)
     - [🍂 Go Functions](#-go-functions)
+  - [🚀 Topics covered from other sources](#-topics-covered-from-other-sources)
     - [🍂 Why choose go over node.js for backend?](#-why-choose-go-over-nodejs-for-backend)
     - [🍂 Go Concurrency](#-go-concurrency)
     - [🍂 Go Error Handling](#-go-error-handling)
@@ -300,6 +301,8 @@ func main() {
 ```
 
 <br><br>
+
+## 🚀 Topics covered from other sources
 
 ### 🍂 Why choose go over node.js for backend?
 | Go | Node.js |
