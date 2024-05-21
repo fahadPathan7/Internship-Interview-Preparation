@@ -64,6 +64,7 @@
     - [🍂 what is the difference between throw and throws?](#-what-is-the-difference-between-throw-and-throws)
     - [🍂 what is the difference between checked and unchecked exceptions?](#-what-is-the-difference-between-checked-and-unchecked-exceptions)
     - [🍂 what is the difference between final, finally, and finalize?](#-what-is-the-difference-between-final-finally-and-finalize)
+    - [🍂 why java does not have pointer?](#-why-java-does-not-have-pointer)
 
 <br><br>
 
@@ -184,8 +185,8 @@ here, Dog is a subclass of Animal.
 ### 🍂 what is polymorphism?
 Polymorphism is a mechanism in which one task is performed by different ways. It represents the **HAS-A relationship**.
 
-1. **Compile-time polymorphism**: method overloading.
-2. **Run-time polymorphism**: method overriding.
+1. **Compile-time polymorphism**: method overloading. (it is called compile-time polymorphism because the compiler knows which method to call at compile time).
+2. **Run-time polymorphism**: method overriding. (it is called run-time polymorphism because the compiler doesn't know which method to call at compile time).
 
 run-time polymorphism:
 ```java
@@ -1013,4 +1014,10 @@ protected void finalize() {
     // cleanup code
 }
 ```
+
+<br><br>
+
+### 🍂 why java does not have pointer?
+Java does not have pointers because pointers are **unsafe** and **unsecure**. They can be used to access memory locations directly, leading to memory corruption and security vulnerabilities. Java uses **references** instead of pointers. References are **safer** and **more secure** than pointers. They provide a level of **abstraction** that prevents direct access to memory locations.
+
 <hr>

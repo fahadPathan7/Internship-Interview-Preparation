@@ -302,6 +302,8 @@ func main() {
 
 <br><br>
 
+<hr>
+
 ## 🚀 Topics covered from other sources
 
 ### 🍂 Why choose go over node.js for backend?
