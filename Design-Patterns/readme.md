@@ -1,10 +1,47 @@
 # Interview Preparation on Design Patterns
 
 ## Index
+- [Interview Preparation on Design Patterns](#interview-preparation-on-design-patterns)
+  - [Index](#index)
+  - [🚀 Topics covered from javatpoint](#-topics-covered-from-javatpoint)
+    - [🍃 SOLID principles](#-solid-principles)
+    - [🍂 Single Responsibility Principle (SRP)](#-single-responsibility-principle-srp)
+    - [🍂 Open/Closed Principle (OCP)](#-openclosed-principle-ocp)
+    - [🍂 Liskov Substitution Principle (LSP)](#-liskov-substitution-principle-lsp)
+    - [🍂 Interface Segregation Principle (ISP)](#-interface-segregation-principle-isp)
+    - [🍂 Dependency Inversion Principle (DIP)](#-dependency-inversion-principle-dip)
+    - [🍃 Types of Design Patterns.](#-types-of-design-patterns)
+    - [🍃 Creational Design Pattern](#-creational-design-pattern)
+    - [🍂 Singleton Pattern](#-singleton-pattern)
+    - [🍂 Factory Method Pattern](#-factory-method-pattern)
+    - [🍂 Abstract Factory Pattern](#-abstract-factory-pattern)
+    - [🍂 Builder Pattern](#-builder-pattern)
+    - [🍂 Prototype Pattern](#-prototype-pattern)
+    - [🍃 Structural Design Patterns](#-structural-design-patterns)
+    - [🍂 Adapter Pattern](#-adapter-pattern)
+    - [🍂 Bridge Pattern](#-bridge-pattern)
+    - [🍂 Composite Pattern](#-composite-pattern)
+    - [🍂 Decorator Pattern](#-decorator-pattern)
+    - [🍂 Facade Pattern](#-facade-pattern)
+    - [🍂 Flyweight Pattern](#-flyweight-pattern)
+    - [🍂 Proxy Pattern](#-proxy-pattern)
+    - [🍃 Behavioral Design Patterns](#-behavioral-design-patterns)
+    - [🍂 Chain of Responsibility Pattern](#-chain-of-responsibility-pattern)
+    - [🍂 Command Pattern](#-command-pattern)
+    - [🍂 Iterator Pattern](#-iterator-pattern)
+    - [🍂 Mediator Pattern](#-mediator-pattern)
+    - [🍂 Memento Pattern](#-memento-pattern)
+    - [🍂 Observer Pattern](#-observer-pattern)
+    - [🍂 State Pattern](#-state-pattern)
+    - [🍂 Strategy Pattern](#-strategy-pattern)
+    - [🍂 Template Pattern](#-template-pattern)
+    - [🍂 Visitor Pattern](#-visitor-pattern)
+
+<br><br>
 
 ## 🚀 Topics covered from javatpoint
 
-### 🍂 SOLID principles
+### 🍃 SOLID principles
 - Single Responsibility Principle (SRP)
 - Open/Closed Principle (OCP)
 - Liskov Substitution Principle (LSP)
@@ -228,7 +265,7 @@ class Main {
 
 <br><br>
 
-### 🍂 Types of Design Patterns.
+### 🍃 Types of Design Patterns.
 - Creational Design Patterns
     - Singleton Pattern
     - Factory Method Pattern
@@ -246,7 +283,6 @@ class Main {
 - Behavioral Design Patterns
     - Chain of Responsibility Pattern
     - Command Pattern
-    - Interpreter Pattern
     - Iterator Pattern
     - Mediator Pattern
     - Memento Pattern
@@ -258,7 +294,7 @@ class Main {
 
 <br><br>
 
-### 🍂 Creational Design Pattern
+### 🍃 Creational Design Pattern
 The Creational Design Pattern is used to create objects in a manner suitable to the situation. It provides various mechanisms to create objects in a way that increases flexibility and reusability of the objects.
 
 <br><br>
@@ -600,7 +636,7 @@ here, the ShapeCache class is used to get the cloned object. The Shape class imp
 
 <br><br>
 
-### 🍂 Structural Design Patterns
+### 🍃 Structural Design Patterns
 Structural Design Patterns are concerned with how classes and objects can be composed to form larger structures.
 
 <br><br>
@@ -1093,3 +1129,760 @@ class Main {
 here, the Image interface is the subject interface and the RealImage and ProxyImage classes are the real and proxy classes, respectively. The ProxyImage class provides a surrogate or placeholder for the RealImage class to control access to it.
 
 <br><br>
+
+### 🍃 Behavioral Design Patterns
+Behavioral Design Patterns are concerned with the interaction between objects. It defines how objects interact with each other and how to assign responsibilities between objects.
+
+<br><br>
+
+### 🍂 Chain of Responsibility Pattern
+A Chain of Responsibility Pattern creates a chain of receiver objects for a request. It allows multiple objects to handle the request without coupling the sender to the receiver.
+
+```java
+abstract class Logger {
+    public static int INFO = 1;
+    public static int DEBUG = 2;
+    public static int ERROR = 3;
+
+    protected int level;
+
+    protected Logger nextLogger;
+
+    public void setNextLogger(Logger nextLogger) {
+        this.nextLogger = nextLogger;
+    }
+
+    public void logMessage(int level, String message) {
+        if (this.level <= level) {
+            write(message);
+        }
+        if (nextLogger != null) {
+            nextLogger.logMessage(level, message); // creates a chain of receiver objects for a request. logMessage() method is called recursively.
+        }
+    }
+
+    abstract protected void write(String message);
+}
+
+class ConsoleLogger extends Logger {
+    public ConsoleLogger(int level) {
+        this.level = level;
+    }
+
+    protected void write(String message) {
+        System.out.println("Standard Console::Logger: " + message);
+    }
+}
+
+class ErrorLogger extends Logger {
+    public ErrorLogger(int level) {
+        this.level = level;
+    }
+
+    protected void write(String message) {
+        System.out.println("Error Console::Logger: " + message);
+    }
+}
+
+class FileLogger extends Logger {
+    public FileLogger(int level) {
+        this.level = level;
+    }
+
+    protected void write(String message) {
+        System.out.println("File::Logger: " + message);
+    }
+}
+
+class Main {
+    private static Logger getChainOfLoggers() {
+        Logger errorLogger = new ErrorLogger(Logger.ERROR);
+        Logger fileLogger = new FileLogger(Logger.DEBUG);
+        Logger consoleLogger = new ConsoleLogger(Logger.INFO);
+
+        errorLogger.setNextLogger(fileLogger);
+        fileLogger.setNextLogger(consoleLogger);
+
+        return errorLogger;
+    }
+
+    public static void main(String[] args) {
+        Logger loggerChain = getChainOfLoggers();
+
+        loggerChain.logMessage(Logger.INFO, "This is an information.");
+        loggerChain.logMessage(Logger.DEBUG, "This is a debug level information.");
+        loggerChain.logMessage(Logger.ERROR, "This is an error information.");
+    }
+}
+```
+here, the Logger class is the abstract handler class that defines the nextLogger variable and the logMessage() method. The ConsoleLogger, ErrorLogger, and FileLogger classes are the concrete handler classes that implement the Logger class.
+
+output:
+```
+Standard Console::Logger: This is an information.
+File::Logger: This is a debug level information.
+Standard Console::Logger: This is a debug level information.
+Error Console::Logger: This is an error information.
+File::Logger: This is an error information.
+Standard Console::Logger: This is an error information.
+```
+
+<br><br>
+
+### 🍂 Command Pattern
+A Command Pattern encapsulates a request as an object, thereby allowing for parameterization of clients with different requests, queuing of requests, and logging of requests.
+
+```java
+interface Order {
+    void execute();
+}
+
+class Stock {
+    private String name = "ABC";
+    private int quantity = 10;
+
+    public void buy() {
+        System.out.println("Stock [ Name: " + name + ", Quantity: " + quantity + " ] bought");
+    }
+
+    public void sell() {
+        System.out.println("Stock [ Name: " + name + ", Quantity: " + quantity + " ] sold");
+    }
+}
+
+class BuyStock implements Order {
+    private Stock abcStock;
+
+    public BuyStock(Stock abcStock) {
+        this.abcStock = abcStock;
+    }
+
+    public void execute() {
+        abcStock.buy();
+    }
+}
+
+class SellStock implements Order {
+    private Stock abcStock;
+
+    public SellStock(Stock abcStock) {
+        this.abcStock = abcStock;
+    }
+
+    public void execute() {
+        abcStock.sell();
+    }
+}
+
+class Broker {
+    private List<Order> orderList = new ArrayList<>();
+
+    public void takeOrder(Order order) {
+        orderList.add(order);
+    }
+
+    public void placeOrders() {
+        for (Order order : orderList) {
+            order.execute();
+        }
+        orderList.clear();
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Stock abcStock = new Stock();
+
+        BuyStock buyStockOrder = new BuyStock(abcStock);
+        SellStock sellStockOrder = new SellStock(abcStock);
+
+        Broker broker = new Broker();
+        broker.takeOrder(buyStockOrder);
+        broker.takeOrder(sellStockOrder);
+
+        broker.placeOrders();
+    }
+}
+```
+here, the Order interface is the command interface and the BuyStock and SellStock classes are the concrete command classes that implement the Order interface. The Broker class is the invoker class that takes the order and places the orders.
+
+output:
+```
+Stock [ Name: ABC, Quantity: 10 ] bought
+Stock [ Name: ABC, Quantity: 10 ] sold
+```
+
+<br><br>
+
+### 🍂 Iterator Pattern
+An Iterator Pattern provides a way to **access the elements of an aggregate object sequentially** without exposing its underlying representation.
+
+```java
+interface Iterator {
+    boolean hasNext();
+    Object next();
+}
+
+interface Container {
+    Iterator getIterator();
+}
+
+class NameRepository implements Container {
+    public String names[] = { "Robert", "John", "Julie", "Lora" };
+
+    public Iterator getIterator() {
+        return new NameIterator();
+    }
+
+    private class NameIterator implements Iterator {
+        int index;
+
+        public boolean hasNext() {
+            if (index < names.length) {
+                return true;
+            }
+            return false;
+        }
+
+        public Object next() {
+            if (this.hasNext()) {
+                return names[index++];
+            }
+            return null;
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        NameRepository namesRepository = new NameRepository();
+
+        for (Iterator iter = namesRepository.getIterator(); iter.hasNext();) {
+            String name = (String) iter.next();
+            System.out.println("Name: " + name);
+        }
+    }
+}
+```
+here, the Iterator interface is the iterator interface and the NameRepository class is the container class that implements the Container interface. The NameIterator class is the concrete iterator class that implements the Iterator interface.
+
+output:
+```
+Name: Robert
+Name: John
+Name: Julie
+Name: Lora
+```
+
+<br><br>
+
+### 🍂 Mediator Pattern
+A Mediator Pattern defines an object that encapsulates how a set of objects interact. It promotes loose coupling by keeping objects from referring to each other explicitly and allows their interaction to vary independently. (used to reduce communication complexity between multiple objects)
+
+```java
+import java.util.ArrayList;
+
+interface ChatRoom {
+    void showMessage(User user, String message);
+}
+
+class User {
+    private String name;
+    private ChatRoom chatRoom;
+
+    public User(String name, ChatRoom chatRoom) {
+        this.name = name;
+        this.chatRoom = chatRoom;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void send(String message) {
+        chatRoom.showMessage(this, message);
+    }
+}
+
+class ChatRoomImpl implements ChatRoom {
+    private ArrayList<User> users = new ArrayList<>();
+
+    public void showMessage(User user, String message) {
+        System.out.println(user.getName() + ": " + message);
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        ChatRoom chatRoom = new ChatRoomImpl();
+
+        User user1 = new User("Robert", chatRoom);
+        User user2 = new User("John", chatRoom);
+
+        chatRoom.addUser(user1);
+        chatRoom.addUser(user2);
+
+        user1.send("Hi! John!");
+        user2.send("Hello! Robert!");
+    }
+}
+```
+here, the ChatRoom interface is the mediator interface and the ChatRoomImpl class is the concrete mediator class that implements the ChatRoom interface. The User class is the colleague class that interacts with the ChatRoom class.
+
+output:
+```
+Robert: Hi! John!
+John: Hello! Robert!
+```
+
+<br><br>
+
+### 🍂 Memento Pattern
+A Memento Pattern captures and externalizes an object's internal state so that the object can be restored to this state later. (provides the ability to restore an object to its previous state)
+
+```java
+class Memento {
+    private String state;
+
+    public Memento(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+}
+
+class Originator {
+    private String state;
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public Memento saveStateToMemento() {
+        return new Memento(state);
+    }
+
+    public void getStateFromMemento(Memento memento) {
+        state = memento.getState();
+    }
+}
+
+class CareTaker {
+    private List<Memento> mementoList = new ArrayList<>();
+
+    public void add(Memento state) {
+        mementoList.add(state);
+    }
+
+    public Memento get(int index) {
+        return mementoList.get(index);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Originator originator = new Originator();
+        CareTaker careTaker = new CareTaker();
+
+        originator.setState("State #1");
+        originator.setState("State #2");
+        careTaker.add(originator.saveStateToMemento());
+
+        originator.setState("State #3");
+        careTaker.add(originator.saveStateToMemento());
+
+        originator.setState("State #4");
+        System.out.println("Current State: " + originator.getState());
+
+        originator.getStateFromMemento(careTaker.get(0));
+        System.out.println("First saved State: " + originator.getState());
+        originator.getStateFromMemento(careTaker.get(1));
+        System.out.println("Second saved State: " + originator.getState());
+    }
+}
+```
+here, the Memento class is the memento class that holds the state of the Originator class. The Origin class is the originator class that sets and gets the state from the Memento class. The CareTaker class is the caretaker class that holds the memento objects.
+
+output:
+```
+Current State: State #4
+First saved State: State #2
+Second saved State: State #3
+```
+
+<br><br>
+
+### 🍂 Observer Pattern
+An Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. (used to notify multiple objects about a change in the object)
+
+```java
+import java.util.ArrayList;
+
+interface Subject {
+    void register(Observer obj);
+    void unregister(Observer obj);
+    void notifyObservers();
+}
+
+class MessagePublisher implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void register(Observer obj) {
+        observers.add(obj);
+    }
+
+    public void unregister(Observer obj) {
+        observers.remove(obj);
+    }
+
+    public void notifyObservers() {
+        for (Observer obj : observers) {
+            obj.update();
+        }
+    }
+}
+
+interface Observer {
+    void update();
+}
+
+class MessageSubscriberOne implements Observer {
+    public void update() {
+        System.out.println("MessageSubscriberOne :: update");
+    }
+}
+
+class MessageSubscriberTwo implements Observer {
+    public void update() {
+        System.out.println("MessageSubscriberTwo :: update");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        MessagePublisher publisher = new MessagePublisher();
+
+        Observer subscriber1 = new MessageSubscriberOne();
+        Observer subscriber2 = new MessageSubscriberTwo();
+
+        publisher.register(subscriber1);
+        publisher.register(subscriber2);
+
+        publisher.notifyObservers();
+    }
+}
+```
+here, the Subject interface is the subject interface and the MessagePublisher class is the concrete subject class that implements the Subject interface. The Observer interface is the observer interface and the MessageSubscriberOne and MessageSubscriberTwo classes are the concrete observer classes that implement the Observer interface.
+
+output:
+```
+MessageSubscriberOne :: update
+MessageSubscriberTwo :: update
+```
+
+<br><br>
+
+### 🍂 State Pattern
+A State Pattern allows an object to alter its behavior when its internal state changes. The object will appear to change its class. (used to change the behavior of an object when its state changes)
+
+```java
+interface State {
+    void doAction(Context context);
+}
+
+class StartState implements State {
+    public void doAction(Context context) {
+        System.out.println("Player is in start state");
+        context.setState(this);
+    }
+
+    public String toString() {
+        return "Start State";
+    }
+}
+
+class StopState implements State {
+    public void doAction(Context context) {
+        System.out.println("Player is in stop state");
+        context.setState(this);
+    }
+
+    public String toString() {
+        return "Stop State";
+    }
+}
+
+class Context {
+    private State state;
+
+    public Context() {
+        state = null;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public State getState() {
+        return state;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Context context = new Context();
+
+        StartState startState = new StartState();
+        startState.doAction(context);
+
+        System.out.println(context.getState().toString());
+
+        StopState stopState = new StopState();
+        stopState.doAction(context);
+
+        System.out.println(context.getState().toString());
+    }
+}
+```
+here, the State interface is the state interface and the StartState and StopState classes are the concrete state classes that implement the State interface. The Context class is the context class that holds the state of the object.
+
+output:
+```
+Player is in start state
+Start State
+Player is in stop state
+Stop State
+```
+
+<br><br>
+
+### 🍂 Strategy Pattern
+A Strategy Pattern defines **a family of algorithms, encapsulates each algorithm, and makes the algorithms interchangeable within that family**. (used to change the behavior of an object at runtime)
+
+```java
+interface Strategy {
+    int doOperation(int num1, int num2);
+}
+
+class OperationAdd implements Strategy {
+    public int doOperation(int num1, int num2) {
+        return num1 + num2;
+    }
+}
+
+class OperationSubtract implements Strategy {
+    public int doOperation(int num1, int num2) {
+        return num1 - num2;
+    }
+}
+
+class OperationMultiply implements Strategy {
+    public int doOperation(int num1, int num2) {
+        return num1 * num2;
+    }
+}
+
+class Context {
+    private Strategy strategy;
+
+    public Context(Strategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public int executeStrategy(int num1, int num2) {
+        return strategy.doOperation(num1, num2);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Context context = new Context(new OperationAdd());
+        System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
+
+        context = new Context(new OperationSubtract());
+        System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
+
+        context = new Context(new OperationMultiply());
+        System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+    }
+}
+```
+here, the Strategy interface is the strategy interface and the OperationAdd, OperationSubtract, and OperationMultiply classes are the concrete strategy classes that implement the Strategy interface. The Context class is the context class that holds the strategy object.
+
+output:
+```
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
+```
+
+<br><br>
+
+### 🍂 Template Pattern
+A Template Pattern **defines the program skeleton of an algorithm** in an operation, deferring some steps to subclasses. It allows subclasses to redefine certain steps of an algorithm without changing the algorithm's structure. (used to define the program skeleton of an algorithm)
+
+```java
+abstract class Game {
+    abstract void initialize();
+    abstract void startPlay();
+    abstract void endPlay();
+
+    public final void play() {
+        initialize();
+        startPlay();
+        endPlay();
+    }
+}
+
+class Cricket extends Game {
+    void initialize() {
+        System.out.println("Cricket Game Initialized! Start playing.");
+    }
+
+    void startPlay() {
+        System.out.println("Cricket Game Started. Enjoy the game!");
+    }
+
+    void endPlay() {
+        System.out.println("Cricket Game Finished!");
+    }
+}
+
+class Football extends Game {
+    void initialize() {
+        System.out.println("Football Game Initialized! Start playing.");
+    }
+
+    void startPlay() {
+        System.out.println("Football Game Started. Enjoy the game!");
+    }
+
+    void endPlay() {
+        System.out.println("Football Game Finished!");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Game game = new Cricket();
+        game.play();
+        System.out.println();
+
+        game = new Football();
+        game.play();
+    }
+}
+```
+here, the Game class is the abstract class that defines the template method play(). The Cricket and Football classes are the concrete classes that extend the Game class and implement the abstract methods. The play() method is the template method that defines the program skeleton of the algorithm.
+
+output:
+```
+Cricket Game Initialized! Start playing.
+Cricket Game Started. Enjoy the game!
+Cricket Game Finished!
+
+Football Game Initialized! Start playing.
+Football Game Started. Enjoy the game!
+Football Game Finished!
+```
+
+<br><br>
+
+### 🍂 Visitor Pattern
+A Visitor Pattern **defines a new operation to a class without changing the class**. It allows adding new operations to an object structure without modifying the objects. (used to add new operations to an object structure)
+
+```java
+interface ComputerPart {
+    void accept(ComputerPartVisitor computerPartVisitor);
+}
+
+class Keyboard implements ComputerPart {
+    public void accept(ComputerPartVisitor computerPartVisitor) {
+        computerPartVisitor.visit(this);
+    }
+}
+
+class Monitor implements ComputerPart {
+    public void accept(ComputerPartVisitor computerPartVisitor) {
+        computerPartVisitor.visit(this);
+    }
+}
+
+class Mouse implements ComputerPart {
+    public void accept(ComputerPartVisitor computerPartVisitor) {
+        computerPartVisitor.visit(this);
+    }
+}
+
+class Computer implements ComputerPart {
+    ComputerPart[] parts;
+
+    public Computer() {
+        parts = new ComputerPart[] { new Mouse(), new Keyboard(), new Monitor() };
+    }
+
+    public void accept(ComputerPartVisitor computerPartVisitor) {
+        for (int i = 0; i < parts.length; i++) {
+            parts[i].accept(computerPartVisitor);
+        }
+        computerPartVisitor.visit(this);
+    }
+}
+
+interface ComputerPartVisitor {
+    void visit(Computer computer);
+    void visit(Mouse mouse);
+    void visit(Keyboard keyboard);
+    void visit(Monitor monitor);
+}
+
+class ComputerPartDisplayVisitor implements ComputerPartVisitor {
+    public void visit(Computer computer) {
+        System.out.println("Displaying Computer.");
+    }
+
+    public void visit(Mouse mouse) {
+        System.out.println("Displaying Mouse.");
+    }
+
+    public void visit(Keyboard keyboard) {
+        System.out.println("Displaying Keyboard.");
+    }
+
+    public void visit(Monitor monitor) {
+        System.out.println("Displaying Monitor.");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        ComputerPart computer = new Computer();
+        computer.accept(new ComputerPartDisplayVisitor());
+    }
+}
+```
+here, the ComputerPart interface is the element interface and the Keyboard, Monitor, Mouse, and Computer classes are the concrete element classes that implement the ComputerPart interface. The ComputerPartVisitor interface is the visitor interface and the ComputerPartDisplayVisitor class is the concrete visitor class that implements the ComputerPartVisitor interface.
+
+output:
+```
+Displaying Mouse.
+Displaying Keyboard.
+Displaying Monitor.
+Displaying Computer.
+```
+
+<hr>
