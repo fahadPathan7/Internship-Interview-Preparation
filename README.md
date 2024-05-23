@@ -4,6 +4,7 @@ In this repository, I will document interview questions and answers on various t
 ## Topics
 - [Java](./Java/)
 - [MySQL](./MySql/)
+- [JavaScript](./JavaScript/)
 - [Node.js](./Node.js/)
 - [React.js](./React.js/)
 - [Golang](./Golang/)
