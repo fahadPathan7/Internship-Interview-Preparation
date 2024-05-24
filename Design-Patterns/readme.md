@@ -3,21 +3,20 @@
 ## Index
 - [Interview Preparation on Design Patterns](#interview-preparation-on-design-patterns)
   - [Index](#index)
-  - [🚀 Topics covered from javatpoint](#-topics-covered-from-javatpoint)
-    - [🍃 SOLID principles](#-solid-principles)
+  - [🚀 SOLID principles](#-solid-principles)
     - [🍂 Single Responsibility Principle (SRP)](#-single-responsibility-principle-srp)
     - [🍂 Open/Closed Principle (OCP)](#-openclosed-principle-ocp)
     - [🍂 Liskov Substitution Principle (LSP)](#-liskov-substitution-principle-lsp)
     - [🍂 Interface Segregation Principle (ISP)](#-interface-segregation-principle-isp)
     - [🍂 Dependency Inversion Principle (DIP)](#-dependency-inversion-principle-dip)
-    - [🍃 Types of Design Patterns.](#-types-of-design-patterns)
-    - [🍃 Creational Design Pattern](#-creational-design-pattern)
+  - [🚀 Types of Design Patterns.](#-types-of-design-patterns)
+  - [🚀 Creational Design Pattern](#-creational-design-pattern)
     - [🍂 Singleton Pattern](#-singleton-pattern)
     - [🍂 Factory Method Pattern](#-factory-method-pattern)
     - [🍂 Abstract Factory Pattern](#-abstract-factory-pattern)
     - [🍂 Builder Pattern](#-builder-pattern)
     - [🍂 Prototype Pattern](#-prototype-pattern)
-    - [🍃 Structural Design Patterns](#-structural-design-patterns)
+  - [🚀 Structural Design Patterns](#-structural-design-patterns)
     - [🍂 Adapter Pattern](#-adapter-pattern)
     - [🍂 Bridge Pattern](#-bridge-pattern)
     - [🍂 Composite Pattern](#-composite-pattern)
@@ -25,7 +24,7 @@
     - [🍂 Facade Pattern](#-facade-pattern)
     - [🍂 Flyweight Pattern](#-flyweight-pattern)
     - [🍂 Proxy Pattern](#-proxy-pattern)
-    - [🍃 Behavioral Design Patterns](#-behavioral-design-patterns)
+  - [🚀 Behavioral Design Patterns](#-behavioral-design-patterns)
     - [🍂 Chain of Responsibility Pattern](#-chain-of-responsibility-pattern)
     - [🍂 Command Pattern](#-command-pattern)
     - [🍂 Iterator Pattern](#-iterator-pattern)
@@ -39,9 +38,7 @@
 
 <br><br>
 
-## 🚀 Topics covered from javatpoint
-
-### 🍃 SOLID principles
+## 🚀 SOLID principles
 - Single Responsibility Principle (SRP)
 - Open/Closed Principle (OCP)
 - Liskov Substitution Principle (LSP)
@@ -265,7 +262,7 @@ class Main {
 
 <br><br>
 
-### 🍃 Types of Design Patterns.
+## 🚀 Types of Design Patterns.
 - Creational Design Patterns
     - Singleton Pattern
     - Factory Method Pattern
@@ -294,7 +291,7 @@ class Main {
 
 <br><br>
 
-### 🍃 Creational Design Pattern
+## 🚀 Creational Design Pattern
 The Creational Design Pattern is used to create objects in a manner suitable to the situation. It provides various mechanisms to create objects in a way that increases flexibility and reusability of the objects.
 
 <br><br>
@@ -636,7 +633,7 @@ here, the ShapeCache class is used to get the cloned object. The Shape class imp
 
 <br><br>
 
-### 🍃 Structural Design Patterns
+## 🚀 Structural Design Patterns
 Structural Design Patterns are concerned with how classes and objects can be composed to form larger structures.
 
 <br><br>
@@ -1130,7 +1127,7 @@ here, the Image interface is the subject interface and the RealImage and ProxyIm
 
 <br><br>
 
-### 🍃 Behavioral Design Patterns
+## 🚀 Behavioral Design Patterns
 Behavioral Design Patterns are concerned with the interaction between objects. It defines how objects interact with each other and how to assign responsibilities between objects.
 
 <br><br>
