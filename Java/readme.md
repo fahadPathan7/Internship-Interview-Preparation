@@ -65,6 +65,25 @@
     - [🍂 what is the difference between checked and unchecked exceptions?](#-what-is-the-difference-between-checked-and-unchecked-exceptions)
     - [🍂 what is the difference between final, finally, and finalize?](#-what-is-the-difference-between-final-finally-and-finalize)
     - [🍂 why java does not have pointer?](#-why-java-does-not-have-pointer)
+    - [🍂 Can an interface extend another interface?](#-can-an-interface-extend-another-interface)
+    - [🍂 Can an interface have a constructor?](#-can-an-interface-have-a-constructor)
+    - [🍂 Can an interface have variables?](#-can-an-interface-have-variables)
+    - [🍂 Benefits of using abstraction.](#-benefits-of-using-abstraction)
+    - [🍂 How implementation details is hidden in abstract class?](#-how-implementation-details-is-hidden-in-abstract-class)
+    - [🍂 How is structure different from class?](#-how-is-structure-different-from-class)
+    - [🍂 Define virtual function.](#-define-virtual-function)
+    - [🍂 What is the difference between baseclass and superclass?](#-what-is-the-difference-between-baseclass-and-superclass)
+    - [🍂 How much memory does a class occupy?](#-how-much-memory-does-a-class-occupy)
+    - [🍂 Is it always necessary to create objects from class?](#-is-it-always-necessary-to-create-objects-from-class)
+    - [🍂 Can we overload the destructure in a class?](#-can-we-overload-the-destructure-in-a-class)
+    - [🍂 what will happen if we don't declare the main method as static?](#-what-will-happen-if-we-dont-declare-the-main-method-as-static)
+    - [🍂 Explain the difference between \>\> and \>\>\>.](#-explain-the-difference-between--and-)
+    - [🍂 What are the differences between sleep() and wait() method?](#-what-are-the-differences-between-sleep-and-wait-method)
+    - [🍂 What are the differences between String, StringBuffer and StringBuilder?](#-what-are-the-differences-between-string-stringbuffer-and-stringbuilder)
+    - [🍂 Why does the java array index start with 0?](#-why-does-the-java-array-index-start-with-0)
+    - [🍂 What happens when we don't provide a constructor in a class?](#-what-happens-when-we-dont-provide-a-constructor-in-a-class)
+    - [🍂 What are the differences between method and constructor?](#-what-are-the-differences-between-method-and-constructor)
+    - [🍂 Differnce between error and exception.](#-differnce-between-error-and-exception)
 
 <br><br>
 
@@ -251,6 +270,9 @@ class Student {
     }
 }
 ```
+
+<img src='./images/encapsulation.png' width=300px >
+
 <br><br>
 
 ### 🍂 what is a constructor?
@@ -1019,5 +1041,186 @@ protected void finalize() {
 
 ### 🍂 why java does not have pointer?
 Java does not have pointers because pointers are **unsafe** and **unsecure**. They can be used to access memory locations directly, leading to memory corruption and security vulnerabilities. Java uses **references** instead of pointers. References are **safer** and **more secure** than pointers. They provide a level of **abstraction** that prevents direct access to memory locations.
+
+<br><br>
+
+### 🍂 Can an interface extend another interface?
+Yes, an interface can extend another interface. It is called **interface inheritance**. An interface can extend multiple interfaces. It is used to achieve **multiple inheritance** in Java.
+
+example:
+```java
+interface A {
+    void display();
+}
+
+interface B extends A {
+    void show();
+}
+```
+
+<br><br>
+
+### 🍂 Can an interface have a constructor?
+No, an interface cannot have a constructor. An interface is a **blueprint** for a class and does not have any **implementation**. It cannot be instantiated, so it does not have a constructor.
+
+<br><br>
+
+### 🍂 Can an interface have variables?
+Yes, an interface can have variables. The variables in an interface are **implicitly** public, static, and final. They are **constants** and cannot be changed.
+
+example:
+```java
+interface A {
+    int x = 10; // implicitly public, static, and final
+}
+```
+
+<br><br>
+
+### 🍂 Benefits of using abstraction.
+1. **Security**: it hides the implementation details and provides security.
+2. **Flexibility**: it allows the implementation to change without affecting the user.
+3. **Code reusability**: it allows the code to be reused in different classes.
+4. **Maintenance**: it makes the code easier to maintain and update.
+5. **Encapsulation**: it is closely related to encapsulation and data hiding.
+6. **Big projects**: it is useful in big projects where multiple developers are working on the same project.
+
+<br><br>
+
+### 🍂 How implementation details is hidden in abstract class?
+In an abstract class, the implementation details are hidden by providing **abstract methods**. Abstract methods do not have a body and must be implemented by the subclass. The abstract class provides a **blueprint** for the subclass to follow. It defines the **structure** of the class without providing the **implementation**. The subclass is responsible for providing the implementation of the abstract methods. This allows the implementation details to be hidden from the user.
+
+<br><br>
+
+### 🍂 How is structure different from class?
+A structure is a **user-defined data type** that is used to group related data items of different data types. It is similar to a class in Java but does not have methods. It is not possible to instantiate a structure or inherit from a structure. It is used to represent a simple data structure.
+
+example:
+```java
+struct Student {
+    int id;
+    String name;
+};
+```
+
+<br><br>
+
+### 🍂 Define virtual function.
+A virtual function is a function that is declared in a base class and is **redefined** in a derived class. It is used to achieve **runtime polymorphism**. It allows the function to be called based on the type of object rather than the type of the pointer.
+
+example:
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog is barking");
+    }
+}
+```
+here, the `sound()` method is a virtual function.
+
+<br><br>
+
+### 🍂 What is the difference between baseclass and superclass?
+The baseclass is the **root class** in a class hierarchy. It is the class from which other classes are derived. The superclass is the **immediate parent class** of a class. It is the class that is extended by another class.
+
+<br><br>
+
+### 🍂 How much memory does a class occupy?
+Classes do not occupy memory. Objects of the class occupy memory. The memory occupied by an object of a class depends on the **instance variables** of the class.
+
+<br><br>
+
+### 🍂 Is it always necessary to create objects from class?
+No, it is not always necessary to create objects from a class. Some classes have **static methods** that can be called without creating an object of the class. These methods are called **class methods**.
+
+<br><br>
+
+### 🍂 Can we overload the destructure in a class?
+No, we cannot overload the destructor in a class. The destructor is called automatically when an object is destroyed. It does not have a return type and cannot be overloaded.
+
+<br><br>
+
+### 🍂 what will happen if we don't declare the main method as static?
+We can declare the main method without the static keyword, but the program will not run. The main method is the entry point of the program, and it must be declared as static so that the JVM can call it without creating an object of the class. Though the program will compile successfully, it will throw a `NoSuchMethodError` at runtime.
+
+<br><br>
+
+### 🍂 Explain the difference between >> and >>>.
+The `>>` operator is the **signed right shift operator**. It shifts the bits to the right by the specified number of positions and fills the leftmost positions with the sign bit **(0 for positive numbers and 1 for negative numbers).**
+
+The `>>>` operator is the **unsigned right shift operator**. It shifts the bits to the right by the specified number of positions and fills the **leftmost positions with zeros.**
+
+example:
+```java
+int x = -8;
+System.out.println(x >> 1); // prints -4
+System.out.println(x >>> 1); // prints 2147483644
+```
+binary representation of -8: `11111111111111111111111111111000`
+
+`>>` operator: `11111111111111111111111111111100` (-4) <br>
+`>>>` operator: `0111111111111111111111111111100` (2147483644)
+
+<br><br>
+
+### 🍂 What are the differences between sleep() and wait() method?
+| Feature | `sleep()` | `wait()` |
+|---------|-----------|----------|
+| **Belongs to** | `Thread` class | `Object` class |
+| **Lock Release** | Does not release the lock that the current thread holds | Releases the lock which allows other threads to acquire it |
+| **Method Type** | Static method | Non-static method |
+| **InterruptedException** | Does not throw an `InterruptedException` | Throws `InterruptedException` if the thread is interrupted while waiting |
+| **Purpose** | Mainly used to delay a thread for a specific time duration | Mainly used to pause a thread until notified by another thread |
+| **Overloaded Methods** | `sleep(long millis)`<br>`sleep(long millis, int nanos)`<br>**Parameters:**<br>`millis`: milliseconds<br>`nanos`: nanoseconds | `wait()`<br>`wait(long timeout)`<br>`wait(long timeout, int nanos)`<br>**Parameters:**<br>`timeout`: milliseconds<br>`nanos`: nanoseconds |
+
+<br><br>
+
+### 🍂 What are the differences between String, StringBuffer and StringBuilder?
+| Feature | `String` | `StringBuffer` | `StringBuilder` |
+|---------|----------|---------------|-----------------|
+| **Mutability** | Immutable | Mutable | Mutable |
+| **Thread Safety** | Thread-safe | Thread-safe | Not thread-safe |
+| **Performance** | Slow | Fast | Faster |
+| **Synchronization** | Synchronized | Synchronized | Not synchronized |
+| **Memory Usage** | More memory | Less memory | Less memory |
+| **Methods** | Fewer methods | More methods | More methods |
+| **Use Case** | When the content is fixed | When the content is modified frequently | When the content is modified frequently |
+
+<br><br>
+
+### 🍂 Why does the java array index start with 0?
+The index of an array signifies the distance from the start of the array. So, the first element of the array is at index 0 because it is 0 units away from the start of the array. This convention is followed in many programming languages, including Java.
+
+<br><br>
+
+### 🍂 What happens when we don't provide a constructor in a class?
+If we don't provide a constructor in a class, the compiler automatically provides a **default constructor**. The default constructor is a no-argument constructor that initializes the instance variables to their default values. If a class does not have any constructor, the default constructor is provided by the compiler.
+
+<br><br>
+
+### 🍂 What are the differences between method and constructor?
+| Feature | Method | Constructor |
+|---------|--------|-------------|
+| **Return Type** | Can have a return type | Does not have a return type |
+| **Name** | Can have any name | Must have the same name as the class |
+| **Inheritance** | Inherited by subclasses | Not inherited by subclasses |
+| **Static** | Can be static or non-static | Cannot be static |
+| **Purpose** | Used to perform a specific task | Used to initialize the object of the class |
+
+<br><br>
+
+### 🍂 Differnce between error and exception.
+| Feature | Error | Exception |
+|---------|-------|-----------|
+| **Cause** | Caused by the environment in which the application is running | Caused by the application itself |
+| **Handling** | Cannot be caught or handled | Can be caught and handled |
+| **Recovery** | Cannot be recovered from | Can be recovered from |
+| **Examples** | `OutOfMemoryError`, `StackOverflowError` | `ArithmeticException`, `NullPointerException` |
 
 <hr>
