@@ -84,6 +84,9 @@
     - [🍂 What happens when we don't provide a constructor in a class?](#-what-happens-when-we-dont-provide-a-constructor-in-a-class)
     - [🍂 What are the differences between method and constructor?](#-what-are-the-differences-between-method-and-constructor)
     - [🍂 Differnce between error and exception.](#-differnce-between-error-and-exception)
+    - [🍂 Why the outer class can not be static?](#-why-the-outer-class-can-not-be-static)
+    - [🍂 What is the use of upcasting?](#-what-is-the-use-of-upcasting)
+    - [🍂 Why abstract class can not have object?](#-why-abstract-class-can-not-have-object)
 
 <br><br>
 
@@ -386,23 +389,33 @@ The static keyword is used to create a class-level variable or method. It can be
 
 1. **Static variable**: the value of the variable is shared among all objects of the class.
 2. **Static method**: the method belongs to the class rather than the object.
-3. **Static block**: used to initialize the static variables.
-4. **Static nested class**: a class can be made static **only if it is a nested class**.
+3. **Static block**: used to initialize the static variables. **It is executed before the main method.**
+4. **Static nested class**: a class can be made static **only if it is a nested class**. (inner class can be non-static or static, but a top-level class cannot be static)
 
 example:
 ```java
 class Student {
-    static String college = "XYZ";
+    static String college; // static variable
 
-    static void change() {
+    static void change() { // static method
         college = "ABC";
+    }
+
+    static { // static block
+        college = "XYZ"; // executed before the main method
+    }
+
+    static class Test { // static nested class
+        void display() {
+            System.out.println("Hello");
+        }
     }
 }
 ```
 <br><br>
 
 ### 🍂 what is strictft keyword?
-The strictfp keyword is used to restrict the floating-point calculations to ensure portability. It can be applied to classes, interfaces, and methods. It is used to make the floating-point calculations consistent across different platforms.
+The strictfp keyword is used to restrict the floating-point calculations to ensure portability. It can be applied to classes, interfaces, and methods (not variables because variables are used to store the data and strictfp is not related to data storage). It is used to make the floating-point calculations consistent across different platforms.
 
 example:
 ```java
@@ -512,6 +525,25 @@ class Dog extends Animal {
 
 ### 🍂 object class in java.
 The Object class is the root class of Java. It is present in the `java.lang` package. It is the **superclass of all classes** in Java. It provides some methods that are common to all objects. Some of the methods are: `toString()`, `equals()`, `hashCode()`, `getClass()`, `clone()`, `finalize()`, `notify()`, `notifyAll()`, `wait()`.
+
+example:
+```java
+class Student {
+    int id;
+    String name;
+
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Student s1 = new Student(1, "John");
+        Student s2 = new Student(1, "John");
+        System.out.println(s1.equals(s2)); // prints false (uses the equals method of the Object class)
+    }
+}
+```
 <br><br><br>
 
 ### 🍂 object cloning in java.
@@ -1144,6 +1176,15 @@ No, it is not always necessary to create objects from a class. Some classes have
 ### 🍂 Can we overload the destructure in a class?
 No, we cannot overload the destructor in a class. The destructor is called automatically when an object is destroyed. It does not have a return type and cannot be overloaded.
 
+example:
+```java
+class A {
+    ~A() {
+        // destructor code
+    }
+}
+```
+
 <br><br>
 
 ### 🍂 what will happen if we don't declare the main method as static?
@@ -1222,5 +1263,46 @@ If we don't provide a constructor in a class, the compiler automatically provide
 | **Handling** | Cannot be caught or handled | Can be caught and handled |
 | **Recovery** | Cannot be recovered from | Can be recovered from |
 | **Examples** | `OutOfMemoryError`, `StackOverflowError` | `ArithmeticException`, `NullPointerException` |
+
+<br><br>
+
+### 🍂 Why the outer class can not be static?
+The outer class cannot be static because the **static keyword is used to define a class-level variable or method**. The outer class is a top-level class and does not belong to any other class. It is not associated with any instance of the class, so it cannot be declared as static.
+
+<br><br>
+
+### 🍂 What is the use of upcasting?
+Upcasting is used to **treat an object of a subclass as an object of its superclass**. It is used to achieve **polymorphism**. It allows the superclass reference variable to refer to the subclass object. It is used to achieve **dynamic method dispatch**.
+
+example:
+```java
+class Animal {
+    int x = 10;
+    void sound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    int x = 20;
+    void sound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+public class Upcasting {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // upcasting
+        a.sound(); // prints Dog is barking
+
+        System.out.println(a.x); // prints 10
+    }
+}
+```
+
+<br><br>
+
+### 🍂 Why abstract class can not have object?
+An abstract class cannot have an object because it is an **incomplete class**. It is used to provide a **blueprint** for other classes to follow. It cannot be instantiated because it may contain **abstract methods** that do not have a body. It is used to achieve **abstraction** and **inheritance**.
 
 <hr>
