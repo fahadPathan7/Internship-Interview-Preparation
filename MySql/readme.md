@@ -482,11 +482,11 @@ SELECT Customers.CustomerName, Orders.OrderID
 FROM Customers
 CROSS JOIN Orders;
 ```
-it will return all the customers with all the orders.
+it will return all the customers with all the orders. It will return the number of customers multiplied by the number of orders. (if there are 10 customers and 5 orders, it will return 50 rows.) It is not recommended to use the CROSS JOIN on large tables.
 <br><br><br>
 
 ### 🍂 FULL JOIN
-The FULL JOIN keyword returns all records when there is a match in either left (table1) or right (table2) table records.
+The FULL JOIN keyword returns all records when there is a match in either left (table1) or right (table2) table records. MySQL does not support the FULL JOIN, but it can be emulated using the UNION operator.
 ```sql
 SELECT Customers.CustomerName, Orders.OrderID
 FROM Customers
@@ -497,10 +497,14 @@ FROM Customers
 RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 ```
 
+It will return all the customers with their orders. If the customer has no order, it will return NULL in the order column. If the order has no customer, it will return NULL in the customer column. Also, it will return the customers who have orders and the orders that have customers (in one row). The size of the result will be the sum of the left and right joins. (if there is a match it will return one row, if there is no match it will return two rows, one for the left and one for the right join.)
+
 <br><br>
 
 ### 🍂 SELF JOIN
-A self join is a regular join, but the table is joined with itself.
+A self join is a regular join, but the table is joined with itself. MySQL does not support the SELF JOIN, but it can be emulated using the various types of joins.
+
+with not equal:
 ```sql
 SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
 FROM Customers A, Customers B
