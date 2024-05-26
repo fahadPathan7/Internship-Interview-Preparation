@@ -490,13 +490,6 @@ The FULL JOIN keyword returns all records when there is a match in either left (
 ```sql
 SELECT Customers.CustomerName, Orders.OrderID
 FROM Customers
-FULL JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
-```
-
-and combining left and right join:
-```sql
-SELECT Customers.CustomerName, Orders.OrderID
-FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 UNION
 SELECT Customers.CustomerName, Orders.OrderID
