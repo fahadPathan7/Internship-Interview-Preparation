@@ -109,8 +109,8 @@ It is based on the following principles:
 ### 🍂 why java is a platform?
 Java is a platform because it has two components:
 1. **Runtime Environment:**
-    - **JRE (Java Runtime Environment)**: provides the runtime environment in which Java bytecode can be executed.
     - **JVM (Java Virtual Machine)**: abstract machine that provides the runtime environment for Java bytecode.
+    - **JRE (Java Runtime Environment)**: provides the runtime environment in which Java bytecode can be executed.
     - **JDK (Java Development Kit)**: software development kit used to develop Java applications.
 2. **API (Application Programming Interface):** provides a set of classes and interfaces that can be used to develop Java applications. e.g. `java.lang`, `java.io`, `java.util`, `java.net`.
 <br><br><br>

@@ -28,6 +28,7 @@
     - [🍂 LEFT JOIN](#-left-join)
     - [🍂 RIGHT JOIN](#-right-join)
     - [🍂 CROSS JOIN](#-cross-join)
+    - [🍂 FULL JOIN](#-full-join)
     - [🍂 SELF JOIN](#-self-join)
     - [🍂 UNION](#-union)
     - [🍂 GROUP BY](#-group-by)
@@ -400,6 +401,8 @@ There are different types of joins:
 - **LEFT JOIN**: returns all records from the left table, and the matched records from the right table.
 - **RIGHT JOIN**: returns all records from the right table, and the matched records from the left table.
 - **CROSS JOIN**: returns all the records from both tables.
+- **FULL JOIN**: returns all records when there is a match in either left or right table.
+- **SELF JOIN**: is a regular join, but the table is joined with itself.
 
 <img src="./images/join.png" alt="join" width="700px">
 <br><br><br>
@@ -481,6 +484,27 @@ CROSS JOIN Orders;
 ```
 it will return all the customers with all the orders.
 <br><br><br>
+
+### 🍂 FULL JOIN
+The FULL JOIN keyword returns all records when there is a match in either left (table1) or right (table2) table records.
+```sql
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+```
+
+and combining left and right join:
+```sql
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+UNION
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+```
+
+<br><br>
 
 ### 🍂 SELF JOIN
 A self join is a regular join, but the table is joined with itself.
