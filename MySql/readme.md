@@ -46,6 +46,7 @@
     - [🍂 ROUND() function](#-round-function)
     - [🍂 IFNULL() function](#-ifnull-function)
     - [🍂 HAVING clause](#-having-clause)
+    - [🍂 what is the difference between WHERE and HAVING?](#-what-is-the-difference-between-where-and-having)
     - [🍂 what is the difference between char and varchar datatypes?](#-what-is-the-difference-between-char-and-varchar-datatypes)
     - [🍂 what is normalization?](#-what-is-normalization)
     - [🍂 what is denormalization?](#-what-is-denormalization)
@@ -734,6 +735,28 @@ it will return the customer name and the contact name. If the contact name is nu
 
 ### 🍂 HAVING clause
 The HAVING clause is used to filter records based on a group of rows. It is used in combination with the GROUP BY clause.
+```sql
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 2;
+```
+it will return the number of customers from each country where the number of customers is greater than 2.
+
+<br><br>
+
+### 🍂 what is the difference between WHERE and HAVING?
+- **WHERE**: The WHERE clause is used to filter records before any groupings are made. It is used to filter rows based on a specified condition.
+- **HAVING**: The HAVING clause is used to filter records after the groupings are made. It is used to filter groups based on a specified condition.
+
+```sql
+SELECT COUNT(CustomerID), Country
+FROM Customers
+WHERE Country='Germany'
+GROUP BY Country;
+```
+it will return the number of customers from Germany.
+
 ```sql
 SELECT COUNT(CustomerID), Country
 FROM Customers
