@@ -87,6 +87,8 @@
     - [🍂 Why the outer class can not be static?](#-why-the-outer-class-can-not-be-static)
     - [🍂 What is the use of upcasting?](#-what-is-the-use-of-upcasting)
     - [🍂 Why abstract class can not have object?](#-why-abstract-class-can-not-have-object)
+    - [🍂 If you have an interface and an abstract class implements the interface. Should the abstract class implement all the methods of the interface?](#-if-you-have-an-interface-and-an-abstract-class-implements-the-interface-should-the-abstract-class-implement-all-the-methods-of-the-interface)
+    - [🍂 If you want to make method to override by other classes, how can you do this?](#-if-you-want-to-make-method-to-override-by-other-classes-how-can-you-do-this)
 
 <br><br>
 
@@ -1304,5 +1306,48 @@ public class Upcasting {
 
 ### 🍂 Why abstract class can not have object?
 An abstract class cannot have an object because it is an **incomplete class**. It is used to provide a **blueprint** for other classes to follow. It cannot be instantiated because it may contain **abstract methods** that do not have a body. It is used to achieve **abstraction** and **inheritance**.
+
+<br><br>
+
+### 🍂 If you have an interface and an abstract class implements the interface. Should the abstract class implement all the methods of the interface?
+If an abstract class implements an interface, it is not necessary for the abstract class to implement all the methods of the interface. The abstract class can provide **partial implementation** of the interface methods and leave the rest to be implemented by the subclass.
+
+```java
+interface Animal {
+    void sound();
+    void eat();
+}
+
+abstract class Dog implements Animal {
+    // eat() method is not implemented. It will be implemented by the subclass
+    void sound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Labrador extends Dog {
+    // sound() method is implemented by the abstract class
+    void eat() {
+        System.out.println("Labrador is eating");
+    }
+}
+```
+
+<br><br>
+
+### 🍂 If you want to make method to override by other classes, how can you do this?
+To make a method overrideable by other classes, I can declare the method as **abstract** in the superclass. An abstract method does not have a body and must be implemented by the subclass. It is used to achieve **abstraction** and **polymorphism**.
+
+```java
+abstract class Animal {
+    abstract void sound(); // to be implemented by the subclass
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog is barking");
+    }
+}
+```
 
 <hr>
