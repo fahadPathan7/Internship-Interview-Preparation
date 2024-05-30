@@ -3,7 +3,7 @@
 ## Index
 - [Interview preparation on Java (OOP)](#interview-preparation-on-java-oop)
   - [Index](#index)
-  - [🚀 Topics covered from javatpoint](#-topics-covered-from-javatpoint)
+  - [🚀 Topics covered from javatpoint and other sources](#-topics-covered-from-javatpoint-and-other-sources)
     - [🍂 what is java?](#-what-is-java)
     - [🍂 why java is OOP language?](#-why-java-is-oop-language)
     - [🍂 why java is a platform?](#-why-java-is-a-platform)
@@ -55,9 +55,10 @@
     - [🍂 how to perform single task using multiple thread?](#-how-to-perform-single-task-using-multiple-thread)
     - [🍂 garbage collection.](#-garbage-collection)
     - [🍂 what is synchronization?](#-what-is-synchronization)
+    - [🍂 Thread safety in java](#-thread-safety-in-java)
+    - [🍂 what is immutable object?](#-what-is-immutable-object)
     - [🍂 deadlock in java.](#-deadlock-in-java)
     - [🍂 inter-thread communication.](#-inter-thread-communication)
-  - [🚀 Topics covered from other sources](#-topics-covered-from-other-sources)
     - [🍂 what is the difference between procedural programming and OOP?](#-what-is-the-difference-between-procedural-programming-and-oop)
     - [🍂 what is exception in java and why handling it is important?](#-what-is-exception-in-java-and-why-handling-it-is-important)
     - [🍂 describe try, catch, finally block.](#-describe-try-catch-finally-block)
@@ -92,7 +93,7 @@
 
 <br><br>
 
-## 🚀 Topics covered from javatpoint
+## 🚀 Topics covered from javatpoint and other sources
 
 ### 🍂 what is java?
 Java is a high-level, platform-independent, object-oriented programming language. It was developed by **James Gosling** at **Sun Microsystems** in 1995. It is a general-purpose programming language that is used to develop desktop, web, and mobile applications. It is based on the **WORA (Write Once Run Anywhere)** principle. It is a **class-based** and **object-oriented** language.
@@ -889,6 +890,63 @@ output:
 here, the `printTable()` method is synchronized. The `MyThread1` and `MyThread2` classes are used to create threads that print the table of 5 and 100 respectively. The `synchronized` keyword is used to synchronize the `printTable()` method.
 <br><br><br>
 
+### 🍂 Thread safety in java
+Thread safety is a property of an object that guarantees that **it is safe to be used by multiple threads at the same time**. It is achieved by using synchronization. It is used to prevent data inconsistency.
+
+We can achieve thread safety in Java using the following methods:
+1. **Synchronization**: using the `synchronized` keyword.
+2. **Immutable objects**: objects that cannot be modified.
+3. **Volatile keyword**: used to prevent thread caching.
+4. **Atomic classes**: classes that provide atomic operations.
+5. **ThreadLocal class**: used to create thread-local variables.
+6. **Concurrent collection classes**: classes that provide thread-safe operations.
+7. **Lock interface**: used to provide a fine-grained control over the synchronization.
+8. **Semaphore class**: used to control the number of threads that can access a resource.
+
+example:
+```java
+class Table {
+    synchronized void printTable(int n) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(n * i);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+```
+
+<br><br>
+
+### 🍂 what is immutable object?
+An immutable object is an object whose state cannot be changed after it is created. It is used to achieve thread safety. It is used to prevent data inconsistency. It is achieved by making the class final and the fields private and providing only getter methods.
+
+example:
+```java
+final class Student {
+    private final int id;
+    private final String name;
+
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+<br><br>
+
 ### 🍂 deadlock in java.
 Deadlock is a situation in which two or more threads are waiting for each other to release the resources. It is a common problem in multi-threading. It can occur when two threads have a circular dependency on a pair of synchronized objects.
 
@@ -971,10 +1029,6 @@ It is achieved using the following methods:
 3. **notifyAll()**: wakes up all the threads that are waiting on the object.
 
 <br><br>
-
----
-
-## 🚀 Topics covered from other sources
 
 ### 🍂 what is the difference between procedural programming and OOP?
 Procedural programming is a top-down approach to programming, where the program is divided into a series of functions that each perform a specific task. OOP, on the other hand, is a bottom-up approach to programming, where the program is divided into a series of objects that each represent a real-world entity.
