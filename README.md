@@ -10,5 +10,6 @@ In this repository, I will document interview questions and answers on various t
 - [Golang](./Golang/)
 - [REST API](./REST-API/)
 - [Design Patterns](./Design-Patterns/)
+- [ML](./ML/)
 
 <hr>
