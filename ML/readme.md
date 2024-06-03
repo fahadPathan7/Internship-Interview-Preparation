@@ -87,9 +87,11 @@ A **receiver operating characteristic curve, or ROC curve**, is a graphical plot
 The ROC curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings. Threshold setting is a value that is used to classify the predicted probabilities into classes. Here the threshold value is varied from 0 to 1, which will give different FPR and TPR values. The area under the ROC curve (AUC) is a measure of how well a parameter can distinguish between two diagnostic groups (diseased/normal). The AUC (Area Under the Curve) makes it easy to compare the ROC curve with one another.
 [Tutorial on ROC and AUC](https://www.youtube.com/watch?v=4jRBRDbJemM)
 
-<img src="./images/roc.png" alt="ROC Curve" height="200"/>
-<img src="./images/auc_roc.png" alt="AUC-ROC Curve" height="200"/>
-<img src="./images/roc_vs_roc.png" alt="ROC vs ROC" height="200"/>
+<p align="left">
+    <img src="./images/roc.png" alt="ROC Curve" height="200"/>
+    <img src="./images/auc_roc.png" alt="AUC-ROC Curve" height="200"/>
+    <img src="./images/roc_vs_roc.png" alt="ROC vs ROC" height="200"/>
+</p>
 
 <br><br>
 
@@ -225,8 +227,10 @@ The holdout method is a technique used for **evaluating the performance of a mac
 - **Generative model**: A generative model learns the joint probability distribution `P(X, Y)` and then predicts the conditional probability `P(Y|X)`. It is used to generate new data. Examples of generative models include naive Bayes, hidden Markov models, and restricted Boltzmann machines. (generates new data based on the training data)
 - **Discriminative model**: A discriminative model learns the conditional probability `P(Y|X)` directly from the data. It is used to predict the label of a given input data. Examples of discriminative models include logistic regression, support vector machines, and neural networks. (predicts the label of a given input data)
 
-<img src="./images/generative.png" alt="Generative Model" height="200"/>
-<img src="./images/discriminative.png" alt="Discriminative Model" height="200"/>
+<p align="left">
+    <img src="./images/generative.png" alt="Generative Model" height="200"/>
+    <img src="./images/discriminative.png" alt="Discriminative Model" height="200"/>
+</p>
 
 <br><br>
 
