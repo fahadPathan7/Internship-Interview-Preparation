@@ -58,6 +58,13 @@
     - [🍂 What is Naive Bayes?](#-what-is-naive-bayes)
     - [🍂 What is Random Forest?](#-what-is-random-forest)
     - [🍂 What is Reinforcement Learning?](#-what-is-reinforcement-learning)
+    - [🍂 Why optimizer is needed?](#-why-optimizer-is-needed)
+    - [🍂 Why used ADAM optimizer?](#-why-used-adam-optimizer)
+    - [🍂 What does it mean by AOC = 1.00?](#-what-does-it-mean-by-aoc--100)
+    - [🍂 Why should you use grad-cam?](#-why-should-you-use-grad-cam)
+    - [🍂 What is the use of LIME?](#-what-is-the-use-of-lime)
+    - [🍂 What is tensorflow?](#-what-is-tensorflow)
+    - [🍂 Why you have used tensorflow and not pytorch?](#-why-you-have-used-tensorflow-and-not-pytorch)
 
 <br><br>
 
@@ -366,6 +373,7 @@ A loss function is a measure of how well a machine learning model is performing.
 - **Mean Squared Error (MSE)**: The mean squared error is a loss function used for regression problems. It calculates the average of the squared differences between the predicted values and the actual values.
 - **Binary Cross-Entropy**: The binary cross-entropy is a loss function used for binary classification problems. It calculates the average of the log loss between the predicted values and the actual values.
 - **Categorical Cross-Entropy**: The categorical cross-entropy is a loss function used for multi-class classification problems. It calculates the average of the log loss between the predicted values and the actual values.
+- **sparse_categorical_crossentropy**: sparse_categorical_crossentropy is a loss function used for multi-class classification problems with integer labels. It calculates the average of the log loss between the predicted values and the actual values.
 
 <br><br>
 
@@ -522,3 +530,40 @@ Random Forest is an ensemble learning method that is used for classification and
 Reinforcement Learning is a type of machine learning that is used to teach an agent how to make decisions in an environment. It works by rewarding the agent for taking the correct action and punishing it for taking the wrong action. Reinforcement Learning is widely used in robotics, gaming, and navigation.
 
 <img src="./images/reinforcement_learning.png" alt="Reinforcement Learning" width="300"/>
+
+<br><br>
+
+### 🍂 Why optimizer is needed?
+An optimizer is needed to update the weights of the model during training. It works by minimizing the loss function and finding the best set of weights that minimize the error between the predicted values and the actual values. There are different optimizers available, such as stochastic gradient descent, Adam, and RMSprop.
+
+<br><br>
+
+### 🍂 Why used ADAM optimizer?
+ADAM optimizer is used because it is computationally efficient and requires less memory. It works by combining the advantages of two other optimization algorithms: AdaGrad and RMSprop. ADAM optimizer is widely used in deep learning because it converges faster and is more stable than other optimizers.
+
+<br><br>
+
+### 🍂 What does it mean by AOC = 1.00?
+An AOC (Area Under the Curve) of 1.00 means that the model has perfect performance. It means that the model is able to perfectly distinguish between the positive and negative classes. An AOC of 1.00 is the best possible performance for a classification model.
+
+<br><br>
+
+### 🍂 Why should you use grad-cam?
+Grad-CAM (Gradient-weighted Class Activation Mapping) is a technique **used to visualize** the regions of an image that are important for making a prediction. It works by calculating the gradient of the predicted class with respect to the feature maps of the last convolutional layer. Grad-CAM is used to explain the predictions of a neural network and to understand how the model is making decisions. It is widely used in image recognition, object detection, and image segmentation.
+
+<br><br>
+
+### 🍂 What is the use of LIME?
+LIME (Local Interpretable Model-agnostic Explanations) is a technique **used to explain** the predictions of a machine learning model. It works by generating local explanations for individual predictions by training an interpretable model on the neighborhood of the prediction. LIME is used to understand how a model is making decisions and to identify potential biases in the model.
+
+<br><br>
+
+### 🍂 What is tensorflow?
+TensorFlow is an open-source **machine learning library** developed by Google. It is widely used for building deep learning models and training neural networks. TensorFlow provides a flexible and efficient framework for building and training machine learning models. It is widely used in image recognition, natural language processing, and reinforcement learning.
+
+<br><br>
+
+### 🍂 Why you have used tensorflow and not pytorch?
+TensorFlow and PyTorch are two popular deep learning libraries that are used for building and training neural networks. TensorFlow is widely used in production environments because it provides a flexible and efficient framework for building and training machine learning models. PyTorch is widely used in research environments because it provides a more intuitive and dynamic framework for building and training neural networks. TensorFlow is feature-rich and has a large community of users, while PyTorch is more user-friendly and has a more flexible API.
+
+<hr>
