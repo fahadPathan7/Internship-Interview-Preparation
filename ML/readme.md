@@ -1,6 +1,65 @@
 # Interview Preparation on Machine Learning
 
 ## Index
+- [Interview Preparation on Machine Learning](#interview-preparation-on-machine-learning)
+  - [Index](#index)
+  - [🚀 Topics covered from miscellaneous sources](#-topics-covered-from-miscellaneous-sources)
+    - [🍂 What is Artificial Intelligence?](#-what-is-artificial-intelligence)
+    - [🍂 What is Machine Learning?](#-what-is-machine-learning)
+    - [🍂 What is Deep Learning?](#-what-is-deep-learning)
+    - [🍂 What is Confusion Matrix?](#-what-is-confusion-matrix)
+    - [🍂 What are evaluation metrices?](#-what-are-evaluation-metrices)
+      - [🍃 What is Accuracy?](#-what-is-accuracy)
+      - [🍃 What is Precision?](#-what-is-precision)
+      - [🍃 What is Recall (Sensitivity/ True Positive Rate)?](#-what-is-recall-sensitivity-true-positive-rate)
+      - [🍃 What is F1 Score?](#-what-is-f1-score)
+      - [🍃 What is False Positive Rate?](#-what-is-false-positive-rate)
+      - [🍃 What is Specificity (True Negative Rate)?](#-what-is-specificity-true-negative-rate)
+      - [🍃 What is AUC-ROC Curve?](#-what-is-auc-roc-curve)
+    - [🍂 Types of Machine Learning?](#-types-of-machine-learning)
+    - [🍂 What is Linear Regression?](#-what-is-linear-regression)
+    - [🍂 What is Logistic Regression?](#-what-is-logistic-regression)
+    - [🍂 What is Gradient Descent?](#-what-is-gradient-descent)
+    - [🍂 When to use logistic regression and other classification algorithms?](#-when-to-use-logistic-regression-and-other-classification-algorithms)
+    - [🍂 Cost function.](#-cost-function)
+    - [🍂 How 1/2 makes the calculation of cost function easier?](#-how-12-makes-the-calculation-of-cost-function-easier)
+    - [🍂 Why does the cost function has a square?](#-why-does-the-cost-function-has-a-square)
+    - [🍂 Why squared cost function is not used in logistic regression?](#-why-squared-cost-function-is-not-used-in-logistic-regression)
+    - [🍂 What is Overfitting and Underfitting?](#-what-is-overfitting-and-underfitting)
+    - [🍂 Regularization.](#-regularization)
+    - [🍂 Boosting.](#-boosting)
+    - [🍂 Bagging.](#-bagging)
+    - [🍂 What is Holdout method?](#-what-is-holdout-method)
+    - [🍂 What is the difference between a generative and discriminative model?](#-what-is-the-difference-between-a-generative-and-discriminative-model)
+    - [🍂 What is Neural Network?](#-what-is-neural-network)
+    - [🍂 Parameters that the Neural Network learns during training.](#-parameters-that-the-neural-network-learns-during-training)
+    - [🍂 What is Backpropagation?](#-what-is-backpropagation)
+    - [🍂 Layers in Neural Network.](#-layers-in-neural-network)
+    - [🍂 Activation Functions.](#-activation-functions)
+    - [🍂 What is Vanishing Gradient Problem?](#-what-is-vanishing-gradient-problem)
+    - [🍂 Why introducing non-linearity is important?](#-why-introducing-non-linearity-is-important)
+    - [🍂 What is Dropout?](#-what-is-dropout)
+    - [🍂 What is Batch Normalization and what is the use of it?](#-what-is-batch-normalization-and-what-is-the-use-of-it)
+    - [🍂 Loss functions.](#-loss-functions)
+    - [🍂 What is the difference between a loss function and a cost function?](#-what-is-the-difference-between-a-loss-function-and-a-cost-function)
+    - [🍂 What is the difference between a hyperparameter and a parameter?](#-what-is-the-difference-between-a-hyperparameter-and-a-parameter)
+    - [🍂 What is the difference between a validation set and a test set?](#-what-is-the-difference-between-a-validation-set-and-a-test-set)
+    - [🍂 What is the difference between a local minimum and a global minimum?](#-what-is-the-difference-between-a-local-minimum-and-a-global-minimum)
+    - [🍂 What is the difference between a shallow neural network and a deep neural network?](#-what-is-the-difference-between-a-shallow-neural-network-and-a-deep-neural-network)
+    - [🍂 What is CNN?](#-what-is-cnn)
+    - [🍂 Convolutional layers.](#-convolutional-layers)
+    - [🍂 Pooling layers.](#-pooling-layers)
+    - [🍂 What is SVM?](#-what-is-svm)
+    - [🍂 Main ideas behind SVM.](#-main-ideas-behind-svm)
+    - [🍂 What is K-Means Clustering?](#-what-is-k-means-clustering)
+    - [🍂 What is PCA?](#-what-is-pca)
+    - [🍂 What is Kernel?](#-what-is-kernel)
+    - [🍂 What is Cross-Validation?](#-what-is-cross-validation)
+    - [🍂 What is Naive Bayes?](#-what-is-naive-bayes)
+    - [🍂 What is Random Forest?](#-what-is-random-forest)
+    - [🍂 What is Reinforcement Learning?](#-what-is-reinforcement-learning)
+
+<br><br>
 
 ## 🚀 Topics covered from miscellaneous sources
 
@@ -115,7 +174,7 @@ Logistic regression aims to **solve classification problems**. It does this by p
 
 In the simplest case there are two outcomes, which is called binomial, an example of which is predicting if a tumor is malignant or benign. Other cases have more than two outcomes to classify, in this case it is called multinomial. A common example for multinomial logistic regression would be predicting the class of an iris flower between 3 different species.
 
-<img src="./images/logistic_regression.png" alt="Logistic Regression" width="300"/>
+<img src="./images/logistic_regression.png" alt="Logistic Regression" height="200"/>
 
 <br><br>
 
@@ -322,5 +381,144 @@ A loss function is a measure of how well a machine learning model is performing.
 
 <br><br>
 
+### 🍂 What is the difference between a validation set and a test set?
+- **Validation Set**: A validation set is a subset of the training data that is used to tune the hyperparameters of the model. It is used to evaluate the performance of the model during training and to prevent overfitting. The validation set is used to select the best model from a set of candidate models.
+- **Test Set**: A test set is a subset of the data that is used to evaluate the performance of the model after training. It is used to estimate the generalization error of the model.
 
+<br><br>
 
+### 🍂 What is the difference between a local minimum and a global minimum?
+- **Local Minimum**: A local minimum is a point in the cost function where the value of the cost function is lower than its value in the neighboring points. It is a point where the gradient of the cost function is zero, but it is not the lowest point in the cost function.
+- **Global Minimum**: A global minimum is a point in the cost function where the value of the cost function is lower than its value in all other points. It is the lowest point in the cost function.
+
+<br><br>
+
+### 🍂 What is the difference between a shallow neural network and a deep neural network?
+- **Shallow Neural Network**: A shallow neural network has only one hidden layer between the input and output layers. It is used for simple problems that do not require complex patterns to be learned.
+- **Deep Neural Network**: A deep neural network has multiple hidden layers between the input and output layers. It is used for complex problems that require complex patterns to be learned.
+
+<br><br>
+
+### 🍂 What is CNN?
+A Convolutional Neural Network (CNN) is a type of neural network that is used for image recognition and classification. It is designed to recognize patterns in images by using convolutional layers that apply filters to the input data. CNNs are widely used in computer vision tasks such as object detection, image segmentation, and image classification.
+
+<img src="./images/cnn.png" alt="CNN" width="600"/>
+
+<br><br>
+
+### 🍂 Convolutional layers.
+A convolutional layer is a layer in a convolutional neural network that applies a filter to the input data. The filter is a small matrix that is applied to the input data to extract features. The filter is moved across the input data to produce a feature map. Convolutional layers are used to learn spatial hierarchies in the input data.
+
+<br><br>
+
+### 🍂 Pooling layers.
+A pooling layer is a layer in a convolutional neural network that reduces the spatial dimensions of the input data. It is used to reduce the computational complexity of the network and to prevent overfitting. There are two types of pooling layers: max pooling and average pooling.
+
+- **Max Pooling**: Max pooling is a pooling operation that selects the maximum value from a set of values. It is used to reduce the spatial dimensions of the input data.
+- **Average Pooling**: Average pooling is a pooling operation that calculates the average value from a set of values. It is used to reduce the spatial dimensions of the input data.
+
+<p align="left">
+    <img src="./images/max_pooling.png" alt="Max Pooling" height="200"/>
+    <img src="./images/average_pooling.png" alt="Average Pooling" height="200"/>
+</p>
+
+<br><br>
+
+### 🍂 What is SVM?
+A Support Vector Machine (SVM) is a supervised machine learning algorithm that is used for classification and regression tasks. **It works by finding the hyperplane** that best separates the data into different classes. SVMs are widely used in text classification, image recognition, and bioinformatics.
+
+<br><br>
+
+### 🍂 Main ideas behind SVM.
+The main ideas behind SVM are:
+1. Start with data in a relatively low-dimensional space.
+2. Move the data into a higher dimension.
+3. Find the hyperplane that best separates the data into different classes.
+
+<p align="left">
+    <img src="./images/svm_1.png" alt="SVM" height="200"/>
+    <img src="./images/svm_2.png" alt="SVM" height="200"/>
+    <img src="./images/svm_3.png" alt="SVM" height="200"/>
+</p>
+
+<br><br>
+
+### 🍂 What is K-Means Clustering?
+K-Means Clustering is an unsupervised machine learning algorithm that is used to cluster data into K clusters. It works by finding the centroids of the clusters and assigning each data point to the nearest centroid. K-Means Clustering is widely used in image segmentation, document clustering, and customer segmentation.
+
+A K-Means Clustering algorithm works as follows:
+1. Initialize K centroids randomly.
+2. Assign each data point to the nearest centroid.
+3. Update the centroids by taking the average of the data points assigned to each centroid.
+4. Repeat steps 2 and 3 until the centroids do not change.
+
+<br>
+
+<p align="left">
+    <img src="./images/kmeans.png" alt="K-Means Clustering" height="300"/>
+    <img src="./images/elbow.png" alt="Elbow Method" height="300"/>
+</p>
+
+<br><br>
+
+### 🍂 What is PCA?
+Principal Component Analysis (PCA) is a dimensionality reduction technique that is used to reduce the number of features in a dataset. It works by finding the principal components of the data, which are the directions in which the data varies the most. PCA is widely used in image compression, data visualization, and feature selection.
+
+PCA works as follows:
+1. Calculate the mean.
+2. Calculate the covariance matrix.
+3. Calculate the eigenvectors and eigenvalues of the covariance matrix.
+4. Calculate the eigenvectors.
+5. Calculate the principal components.
+
+<br><br>
+
+### 🍂 What is Kernel?
+A kernel is a function that is used to transform the input data into a higher-dimensional space. It is used in machine learning algorithms such as SVMs to find the hyperplane that best separates the data into different classes. Kernels are widely used in text classification, image recognition, and bioinformatics.
+
+Kernel functions only calculate the relationships between every pair of points as if they are in the higher dimensions. they don’t actually do the transformation. This trick, calculating the high dimensional relationships without actually transforming the data to the higher dimension, is called The Kernel Trick. The Kernel Trick reduces the amount of computation required for SVM by avoiding the math that transforms the data from low to high dimensions.
+
+<br>
+
+<p align="left">
+    <img src="./images/kernel_1.png" alt="Kernel" height="200"/>
+    <img src="./images/kernel_2.png" alt="Kernel" height="200"/>
+    <img src="./images/kernel_3.png" alt="Kernel" height="200"/>
+</p>
+
+<br>
+
+There are different types of kernels:
+- **Linear Kernel**: A linear kernel is a kernel that is used to find the hyperplane that best separates the data into different classes. It is used for linearly separable data.
+- **Polynomial Kernel**: A polynomial kernel is a kernel that is used to find the hyperplane that best separates the data into different classes. It is used for non-linearly separable data.
+- **RBF Kernel**: A radial basis function (RBF) kernel is a kernel that is used to find the hyperplane that best separates the data into different classes. It is used for non-linearly separable data.
+- **Sigmoid Kernel**: A sigmoid kernel is a kernel that is used to find the hyperplane that best separates the data into different classes. It is used for non-linearly separable data.
+
+<br><br>
+
+### 🍂 What is Cross-Validation?
+Cross-validation is a technique used to evaluate the performance of a machine learning model. It works by splitting the data into K folds and training the model on K-1 folds while testing it on the remaining fold. This process is repeated K times, with each fold serving as the test set once. Cross-validation is widely used in hyperparameter tuning, model selection, and feature selection.
+
+<br><br>
+
+### 🍂 What is Naive Bayes?
+Naive Bayes is a classification algorithm based on Bayes' theorem, which describes the probability of an event based on prior knowledge of conditions that might be related to that event. It's called "naive" because it assumes that the features used to describe an observation are conditionally independent, given the class label. This assumption simplifies the computation and makes it computationally efficient.
+
+<p align="left">
+    <img src="./images/bayes_1.png" alt="Naive Bayes" height="200"/>
+    <img src="./images/bayes_2.png" alt="Naive Bayes" height="200"/>
+</p>
+
+<br><br>
+
+### 🍂 What is Random Forest?
+Random Forest is an ensemble learning method that is used for classification and regression tasks. It works by building a large number of decision trees and combining their predictions to produce a final prediction. Random Forest is widely used in image recognition, text classification, and bioinformatics.
+
+<img src="./images/random_forest.png" alt="Random Forest" width="500"/>
+
+<br><br>
+
+### 🍂 What is Reinforcement Learning?
+Reinforcement Learning is a type of machine learning that is used to teach an agent how to make decisions in an environment. It works by rewarding the agent for taking the correct action and punishing it for taking the wrong action. Reinforcement Learning is widely used in robotics, gaming, and navigation.
+
+<img src="./images/reinforcement_learning.png" alt="Reinforcement Learning" width="300"/>
