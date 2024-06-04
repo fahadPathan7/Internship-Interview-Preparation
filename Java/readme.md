@@ -50,7 +50,7 @@
     - [🍂 can we start a thread twice?](#-can-we-start-a-thread-twice)
     - [🍂 use of Thread.join()](#-use-of-threadjoin)
     - [🍂 what is main thread?](#-what-is-main-thread)
-    - [🍂 what is deamon thread?](#-what-is-deamon-thread)
+    - [🍂 what is daemon thread?](#-what-is-daemon-thread)
     - [🍂 what is thread pool?](#-what-is-thread-pool)
     - [🍂 how to perform single task using multiple thread?](#-how-to-perform-single-task-using-multiple-thread)
     - [🍂 garbage collection.](#-garbage-collection)
@@ -723,7 +723,7 @@ here, the main thread waits for t1 to complete its execution before starting t2.
 The main thread is the thread that is created when the program starts. It is the **entry point of the program**. It is responsible for the execution of the main() method. It is a **non-daemon** thread. It is created by the JVM when the program starts.
 <br><br><br>
 
-### 🍂 what is deamon thread?
+### 🍂 what is daemon thread?
 A daemon thread is a low-priority thread that **runs in the background**. It provides services to the **user threads**. It is used to perform tasks such as garbage collection, memory management, etc. It is a **daemon** thread. It is created by the JVM when the program starts. It is terminated when all the user threads finish their execution.
 <br><br><br>
 
