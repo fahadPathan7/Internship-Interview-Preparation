@@ -65,6 +65,10 @@
     - [🍂 What is the use of LIME?](#-what-is-the-use-of-lime)
     - [🍂 What is tensorflow?](#-what-is-tensorflow)
     - [🍂 Why you have used tensorflow and not pytorch?](#-why-you-have-used-tensorflow-and-not-pytorch)
+    - [🍂 What is vector database?](#-what-is-vector-database)
+    - [🍂 What is RAG?](#-what-is-rag)
+    - [🍂 What is Langchain?](#-what-is-langchain)
+    - [🍂 What is transformer?](#-what-is-transformer)
 
 <br><br>
 
@@ -565,5 +569,25 @@ TensorFlow is an open-source **machine learning library** developed by Google. I
 
 ### 🍂 Why you have used tensorflow and not pytorch?
 TensorFlow and PyTorch are two popular deep learning libraries that are used for building and training neural networks. TensorFlow is widely used in production environments because it provides a flexible and efficient framework for building and training machine learning models. PyTorch is widely used in research environments because it provides a more intuitive and dynamic framework for building and training neural networks. TensorFlow is feature-rich and has a large community of users, while PyTorch is more user-friendly and has a more flexible API.
+
+<br><br>
+
+### 🍂 What is vector database?
+A vector database is a database that is used to store and query vectors. It works by storing the vectors in a high-dimensional space and indexing them using a tree-based data structure. Vector databases are widely used in machine learning applications such as image recognition, text classification, and recommendation systems. They are used to store and query large collections of vectors efficiently. Some popular vector databases include Faiss, Annoy, Chromaprint, and Milvus.
+
+<br><br>
+
+### 🍂 What is RAG?
+RAG (Retrieval Augmented Generation) is a model that is used for text generation tasks. It works by combining a retrieval model with a generation model to produce more coherent and diverse text. RAG is widely used in natural language processing tasks such as question answering, text summarization, and dialogue generation. It is used to generate text that is more relevant and informative than traditional generation models.
+
+<br><br>
+
+### 🍂 What is Langchain?
+Langchain is a language model that is used for text generation tasks. It works by training a neural network on a large corpus of text data to generate human-like text. Langchain is widely used in natural language processing tasks such as machine translation, text summarization, and dialogue generation. It is used to generate text that is more fluent and coherent than traditional language models.
+
+<br><br>
+
+### 🍂 What is transformer?
+A transformer is a type of neural network architecture that is used for **sequence-to-sequence** tasks. It works by using self-attention mechanisms to capture long-range dependencies in the input data. Transformers are widely used in natural language processing tasks such as machine translation, text summarization, and dialogue generation. They are used to generate text that is more fluent and coherent than traditional sequence-to-sequence models.
 
 <hr>
