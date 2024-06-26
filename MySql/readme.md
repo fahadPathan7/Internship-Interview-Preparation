@@ -53,6 +53,7 @@
     - [🍂 what is denormalization?](#-what-is-denormalization)
     - [🍂 what is an ALIAS command?](#-what-is-an-alias-command)
     - [🍂 what is ACID properties?](#-what-is-acid-properties)
+    - [🍂 A table is given with name and salary. Find the second highest and fifth highest salary.](#-a-table-is-given-with-name-and-salary-find-the-second-highest-and-fifth-highest-salary)
 
 <br><br>
 
@@ -845,4 +846,19 @@ The ACID properties are:
 - **Isolation**: It ensures that the transactions are isolated from each other and the transactions are executed in a serializable order.
 - **Durability**: It ensures that the changes made by the transaction are permanent and the changes are saved to the database and are not lost.
 
-<hr>
+<br><br>
+
+### 🍂 A table is given with name and salary. Find the second highest and fifth highest salary.
+
+**using LIMIT and OFFSET**:
+```sql
+SELECT DISTINCT Salary
+FROM Employees
+ORDER BY Salary DESC
+LIMIT 1 OFFSET 1; /* second highest */
+
+SELECT DISTINCT Salary
+FROM Employees
+ORDER BY Salary DESC
+LIMIT 1 OFFSET 4; /* fifth highest */
+```

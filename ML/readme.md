@@ -3,7 +3,7 @@
 ## Index
 - [Interview Preparation on Machine Learning](#interview-preparation-on-machine-learning)
   - [Index](#index)
-  - [🚀 Topics covered from miscellaneous sources](#-topics-covered-from-miscellaneous-sources)
+  - [🚀 Basic Topics](#-basic-topics)
     - [🍂 What is Artificial Intelligence?](#-what-is-artificial-intelligence)
     - [🍂 What is Machine Learning?](#-what-is-machine-learning)
     - [🍂 What is Deep Learning?](#-what-is-deep-learning)
@@ -16,6 +16,7 @@
       - [🍃 What is False Positive Rate?](#-what-is-false-positive-rate)
       - [🍃 What is Specificity (True Negative Rate)?](#-what-is-specificity-true-negative-rate)
       - [🍃 What is AUC-ROC Curve?](#-what-is-auc-roc-curve)
+  - [🚀 Topics on Computer Vision](#-topics-on-computer-vision)
     - [🍂 Types of Machine Learning?](#-types-of-machine-learning)
     - [🍂 What is Linear Regression?](#-what-is-linear-regression)
     - [🍂 What is Logistic Regression?](#-what-is-logistic-regression)
@@ -65,14 +66,13 @@
     - [🍂 What is the use of LIME?](#-what-is-the-use-of-lime)
     - [🍂 What is tensorflow?](#-what-is-tensorflow)
     - [🍂 Why you have used tensorflow and not pytorch?](#-why-you-have-used-tensorflow-and-not-pytorch)
-    - [🍂 What is vector database?](#-what-is-vector-database)
-    - [🍂 What is RAG?](#-what-is-rag)
-    - [🍂 What is Langchain?](#-what-is-langchain)
-    - [🍂 What is transformer?](#-what-is-transformer)
+  - [🚀 Topics on Natural Language Processing](#-topics-on-natural-language-processing)
+    - [🍂 What is LLM?](#-what-is-llm)
+    - [🍂 What is langchain?](#-what-is-langchain)
 
 <br><br>
 
-## 🚀 Topics covered from miscellaneous sources
+## 🚀 Basic Topics
 
 ### 🍂 What is Artificial Intelligence?
 Artificial intelligence (AI) is the **simulation of human intelligence processes by machines**, especially computer systems. These processes include learning (the acquisition of information and rules for using the information), reasoning (using rules to reach approximate or definite conclusions) and self-correction.
@@ -164,6 +164,8 @@ The ROC curve is created by plotting the true positive rate (TPR) against the fa
 </p>
 
 <br><br>
+
+## 🚀 Topics on Computer Vision
 
 ### 🍂 Types of Machine Learning?
 There are three types of machine learning:
@@ -572,22 +574,19 @@ TensorFlow and PyTorch are two popular deep learning libraries that are used for
 
 <br><br>
 
-### 🍂 What is vector database?
-A vector database is a database that is used to store and query vectors. It works by storing the vectors in a high-dimensional space and indexing them using a tree-based data structure. Vector databases are widely used in machine learning applications such as image recognition, text classification, and recommendation systems. They are used to store and query large collections of vectors efficiently. Some popular vector databases include Faiss, Annoy, Chromaprint, and Milvus.
+## 🚀 Topics on Natural Language Processing
+
+### 🍂 What is LLM?
+LLM (Large Language Model) is a language model that is used for text generation tasks. It works by training a neural network on a large corpus of text data to generate human-like text. LLM is widely used in natural language processing tasks such as machine translation, text summarization, and dialogue generation. It is used to generate text that is more fluent and coherent than traditional language models.
+
+The dataset may contain a large number of text data, such as books, articles, and websites. The neural network is trained on the dataset to learn the patterns and relationships in the text data. Parameters such as the number of layers, the number of neurons, and the learning rate are tuned to optimize the performance of the model. The model is then used to generate text that is similar to the text in the dataset.
+
+LLM = Data + Architecture + Training
 
 <br><br>
 
-### 🍂 What is RAG?
-RAG (Retrieval Augmented Generation) is a model that is used for text generation tasks. It works by combining a retrieval model with a generation model to produce more coherent and diverse text. RAG is widely used in natural language processing tasks such as question answering, text summarization, and dialogue generation. It is used to generate text that is more relevant and informative than traditional generation models.
+### 🍂 What is langchain?
+Langchain is a framework that allows to build applications using LLM. It provides a set of tools and libraries that make it easy to build and deploy LLM-based applications. Langchain is widely used in natural language processing tasks such as machine translation, text summarization, and dialogue generation. It is used to generate text that is more fluent and coherent than traditional language models.
 
 <br><br>
 
-### 🍂 What is Langchain?
-Langchain is a language model that is used for text generation tasks. It works by training a neural network on a large corpus of text data to generate human-like text. Langchain is widely used in natural language processing tasks such as machine translation, text summarization, and dialogue generation. It is used to generate text that is more fluent and coherent than traditional language models.
-
-<br><br>
-
-### 🍂 What is transformer?
-A transformer is a type of neural network architecture that is used for **sequence-to-sequence** tasks. It works by using self-attention mechanisms to capture long-range dependencies in the input data. Transformers are widely used in natural language processing tasks such as machine translation, text summarization, and dialogue generation. They are used to generate text that is more fluent and coherent than traditional sequence-to-sequence models.
-
-<hr>
