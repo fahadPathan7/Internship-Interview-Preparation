@@ -90,6 +90,7 @@
     - [🍂 Why abstract class can not have object?](#-why-abstract-class-can-not-have-object)
     - [🍂 If you have an interface and an abstract class implements the interface. Should the abstract class implement all the methods of the interface?](#-if-you-have-an-interface-and-an-abstract-class-implements-the-interface-should-the-abstract-class-implement-all-the-methods-of-the-interface)
     - [🍂 If you want to make method to override by other classes, how can you do this?](#-if-you-want-to-make-method-to-override-by-other-classes-how-can-you-do-this)
+    - [🍂 What is coupling?](#-what-is-coupling)
 
 <br><br>
 
@@ -1403,5 +1404,16 @@ class Dog extends Animal {
     }
 }
 ```
+
+<br><br>
+
+### 🍂 What is coupling?
+The degree of dependency components is called coupling.
+
+Types of coupling:
+1. **Tight coupling**: when a class is dependent on another class. (dependency is high. not good)
+2. **Loose coupling**: when a class is not dependent on another class. (dependency is low. good)
+
+<br><br>
 
 <hr>
