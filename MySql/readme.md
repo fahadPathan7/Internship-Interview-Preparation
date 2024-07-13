@@ -54,6 +54,7 @@
     - [🍂 what is an ALIAS command?](#-what-is-an-alias-command)
     - [🍂 what is ACID properties?](#-what-is-acid-properties)
     - [🍂 A table is given with name and salary. Find the second highest and fifth highest salary.](#-a-table-is-given-with-name-and-salary-find-the-second-highest-and-fifth-highest-salary)
+    - [🍂 Difference between primary key and foreign key.](#-difference-between-primary-key-and-foreign-key)
 
 <br><br>
 
@@ -862,3 +863,20 @@ FROM Employees
 ORDER BY Salary DESC
 LIMIT 1 OFFSET 4; /* fifth highest */
 ```
+
+<br><br>
+
+### 🍂 Difference between primary key and foreign key.
+- **Primary Key**: It is used to uniquely identify each record in a table. It is a unique identifier for each record in the table. It is used to enforce the entity integrity of the table. It is used to create relationships between tables.
+- **Foreign Key**: It is used to create a relationship between two tables. It is used to enforce the referential integrity of the table. It is used to link two tables together. It is used to create a parent-child relationship between two tables. It is used to ensure that the data in the child table is valid and consistent with the data in the parent table.
+
+```sql
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    CustomerID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+```
+
+<hr>
