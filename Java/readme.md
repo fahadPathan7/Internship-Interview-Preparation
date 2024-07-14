@@ -87,6 +87,7 @@
     - [🍂 Differnce between error and exception.](#-differnce-between-error-and-exception)
     - [🍂 Why the outer class can not be static?](#-why-the-outer-class-can-not-be-static)
     - [🍂 What is the use of upcasting?](#-what-is-the-use-of-upcasting)
+    - [🍂 What is the use of downcasting?](#-what-is-the-use-of-downcasting)
     - [🍂 Why abstract class can not have object?](#-why-abstract-class-can-not-have-object)
     - [🍂 If you have an interface and an abstract class implements the interface. Should the abstract class implement all the methods of the interface?](#-if-you-have-an-interface-and-an-abstract-class-implements-the-interface-should-the-abstract-class-implement-all-the-methods-of-the-interface)
     - [🍂 If you want to make method to override by other classes, how can you do this?](#-if-you-want-to-make-method-to-override-by-other-classes-how-can-you-do-this)
@@ -1353,6 +1354,44 @@ public class Upcasting {
         a.sound(); // prints Dog is barking
 
         System.out.println(a.x); // prints 10
+    }
+}
+```
+
+<br><br>
+
+### 🍂 What is the use of downcasting?
+Downcasting is used to **treat an object of a superclass as an object of its subclass**. It is used to access the methods and fields of the subclass. It is used to achieve **dynamic method dispatch**. (Downcasting is needed in object-oriented programming to access the specific methods and properties of a subclass that are not available in a superclass reference.)
+
+example:
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark");
+    }
+
+    void fetch() {
+        System.out.println("Fetching");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Dog(); // Upcasting
+        myAnimal.makeSound(); // This will call the Dog's makeSound method
+        // myAnimal.fetch(); // This will give an error, because the Animal class doesn't have a fetch method
+
+        // We need to call the fetch method, which is specific to Dog
+        if (myAnimal instanceof Dog) {
+            Dog myDog = (Dog) myAnimal; // Downcasting
+            myDog.fetch(); // Now we can call the fetch method
+        }
     }
 }
 ```
