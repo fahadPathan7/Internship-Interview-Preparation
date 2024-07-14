@@ -53,6 +53,7 @@
     - [🍂 what is denormalization?](#-what-is-denormalization)
     - [🍂 what is an ALIAS command?](#-what-is-an-alias-command)
     - [🍂 what is ACID properties?](#-what-is-acid-properties)
+    - [🍂 What is KISS properties?](#-what-is-kiss-properties)
     - [🍂 A table is given with name and salary. Find the second highest and fifth highest salary.](#-a-table-is-given-with-name-and-salary-find-the-second-highest-and-fifth-highest-salary)
     - [🍂 Difference between primary key and foreign key.](#-difference-between-primary-key-and-foreign-key)
 
@@ -846,6 +847,21 @@ The ACID properties are:
 - **Consistency**: It ensures that the database remains consistent before and after the transaction and the data is valid and follows all the rules.
 - **Isolation**: It ensures that the transactions are isolated from each other and the transactions are executed in a serializable order.
 - **Durability**: It ensures that the changes made by the transaction are permanent and the changes are saved to the database and are not lost.
+
+<br><br>
+
+### 🍂 What is KISS properties?
+KISS stands for **Keep It Simple and Straightforward**. It is a design principle that states that most systems work best if they are kept simple rather than made complicated. It is used to avoid unnecessary complexity and to keep the system simple and easy to understand.
+
+The KISS properties are:
+- **Simplicity**: It ensures that the system is simple and easy to understand.
+- **Clarity**: It ensures that the system is clear and easy to read.
+- **Efficiency**: It ensures that the system is efficient and easy to use.
+- **Reliability**: It ensures that the system is reliable and easy to maintain.
+- **Flexibility**: It ensures that the system is flexible and easy to modify.
+- **Scalability**: It ensures that the system is scalable and easy to scale up or down.
+- **Maintainability**: It ensures that the system is maintainable and easy to maintain.
+- **Security**: It ensures that the system is secure and easy to secure.
 
 <br><br>
 
